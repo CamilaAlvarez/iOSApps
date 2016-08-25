@@ -8,11 +8,13 @@
 
 import UIKit
 
+private var myContext = 0
+
 class AdaptableRectangle: UIImageView {
     
-    struct Rectangle {
+    class Rectangle: NSObject {
         var width:CGFloat = 0
-        var height:CGFloat = 0
+        dynamic var height:CGFloat = 0
         var origin:CGPoint?
         var rectangleView:UIView!
         
@@ -20,10 +22,24 @@ class AdaptableRectangle: UIImageView {
             rectangleView.frame = CGRectMake(origin!.x, origin!.y, width, height)
         }
         
-        mutating func changeWholeRectangle(origin origin:CGPoint?, width:CGFloat, height:CGFloat){
+        func changeWholeRectangle(origin origin:CGPoint?, width:CGFloat, height:CGFloat){
             self.origin = origin
             self.width = width
             self.height = height
+        }
+        
+        override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+            if context == &myContext {
+                if let newValue = change?[NSKeyValueChangeNewKey], rect = object as? Rectangle {
+                    if let _ = self.origin{//Separar esto
+                        self.origin!.y = rect.origin!.y
+                    }
+                    self.height = newValue as! CGFloat
+                    
+                }
+            } else {
+                super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            }
         }
     }
     
@@ -52,6 +68,9 @@ class AdaptableRectangle: UIImageView {
         rectangleView.rectangleView = self.createGenericView(frame: initialFrame)
         rectangleView.rectangleView.layer.borderWidth = 2
         rectangleView.rectangleView.layer.borderColor = UIColor.whiteColor().CGColor
+        rectangleView.rectangleView.backgroundColor = UIColor.clearColor()
+        rectangleView.addObserver(leftView, forKeyPath: "height", options: .New, context: &myContext)
+        rectangleView.addObserver(rightView, forKeyPath: "height", options: .New, context: &myContext)
         
     }
     
@@ -100,7 +119,7 @@ class AdaptableRectangle: UIImageView {
                     if distanceX > 0{
                         rectangleView.width = distanceX
                         rightView.origin?.x = positionX
-                        rightView.width -= (distanceX - rectangleView.width)
+                        rightView.width = self.frame.width - positionX
                     }
                     else{
                         rectangleView.width -= distanceX
@@ -109,15 +128,17 @@ class AdaptableRectangle: UIImageView {
                     }
                     
                     if distanceY > 0 {
-                        rectangleView.height = distanceY
                         bottomView.origin?.y = positionY
-                        bottomView.height -= (distanceY - rectangleView.height)
+                        rectangleView.height = distanceY
+                        bottomView.height = self.frame.height - positionY
                     }
                     else{
-                        rectangleView.height -= distanceY
                         rectangleView.origin?.y = positionY
+                        rectangleView.height -= distanceY
                         topView.height = positionY
                     }
+                    leftView.height = rectangleView.height
+                    rightView.height = rectangleView.height
                 }
                 else{
                     var yCorner:CGFloat = positionY - (initialHeightWidth/2)
@@ -143,12 +164,12 @@ class AdaptableRectangle: UIImageView {
                     
 
                 }
-                
+                rectangleView.updateRectangle()
                 topView.updateRectangle()
                 bottomView.updateRectangle()
                 leftView.updateRectangle()
                 rightView.updateRectangle()
-                rectangleView.updateRectangle()
+                
             }
         default:
             print(1)
