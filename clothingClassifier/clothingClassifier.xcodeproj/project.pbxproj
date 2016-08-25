@@ -1,0 +1,552 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */; };
+		4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8B81D63CF6700E9A783 /* ViewController.swift */; };
+		4FB5C8BC1D63CF6700E9A783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8BA1D63CF6700E9A783 /* Main.storyboard */; };
+		4FB5C8BE1D63CF6700E9A783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8BD1D63CF6700E9A783 /* Assets.xcassets */; };
+		4FB5C8C11D63CF6700E9A783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8BF1D63CF6700E9A783 /* LaunchScreen.storyboard */; };
+		4FB5C8CC1D63CF6700E9A783 /* clothingClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8CB1D63CF6700E9A783 /* clothingClassifierTests.swift */; };
+		4FB5C8D71D63CF6700E9A783 /* clothingClassifierUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8D61D63CF6700E9A783 /* clothingClassifierUITests.swift */; };
+		4FB5C8E71D63D13E00E9A783 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8E91D63D13E00E9A783 /* Localizable.strings */; };
+		4FB5C8F21D654C1800E9A783 /* AdaptableRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4FB5C8C81D63CF6700E9A783 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FB5C8AB1D63CF6600E9A783 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FB5C8B21D63CF6600E9A783;
+			remoteInfo = clothingClassifier;
+		};
+		4FB5C8D31D63CF6700E9A783 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FB5C8AB1D63CF6600E9A783 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FB5C8B21D63CF6600E9A783;
+			remoteInfo = clothingClassifier;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4FB5C8B31D63CF6700E9A783 /* clothingClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clothingClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4FB5C8B81D63CF6700E9A783 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4FB5C8BB1D63CF6700E9A783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4FB5C8BD1D63CF6700E9A783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4FB5C8C01D63CF6700E9A783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4FB5C8C21D63CF6700E9A783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FB5C8C71D63CF6700E9A783 /* clothingClassifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = clothingClassifierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FB5C8CB1D63CF6700E9A783 /* clothingClassifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clothingClassifierTests.swift; sourceTree = "<group>"; };
+		4FB5C8CD1D63CF6700E9A783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FB5C8D21D63CF6700E9A783 /* clothingClassifierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = clothingClassifierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FB5C8D61D63CF6700E9A783 /* clothingClassifierUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clothingClassifierUITests.swift; sourceTree = "<group>"; };
+		4FB5C8D81D63CF6700E9A783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FB5C8E81D63D13E00E9A783 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4FB5C8EA1D63D1AB00E9A783 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		4FB5C8EB1D63D1AB00E9A783 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4FB5C8EC1D63D1AB00E9A783 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptableRectangle.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4FB5C8B01D63CF6600E9A783 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FB5C8C41D63CF6700E9A783 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FB5C8CF1D63CF6700E9A783 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4FB5C8AA1D63CF6600E9A783 = {
+			isa = PBXGroup;
+			children = (
+				4FB5C8B51D63CF6700E9A783 /* clothingClassifier */,
+				4FB5C8CA1D63CF6700E9A783 /* clothingClassifierTests */,
+				4FB5C8D51D63CF6700E9A783 /* clothingClassifierUITests */,
+				4FB5C8B41D63CF6700E9A783 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4FB5C8B41D63CF6700E9A783 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FB5C8B31D63CF6700E9A783 /* clothingClassifier.app */,
+				4FB5C8C71D63CF6700E9A783 /* clothingClassifierTests.xctest */,
+				4FB5C8D21D63CF6700E9A783 /* clothingClassifierUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4FB5C8B51D63CF6700E9A783 /* clothingClassifier */ = {
+			isa = PBXGroup;
+			children = (
+				4FB5C8F01D654BE700E9A783 /* utils */,
+				4FB5C8E41D63D10B00E9A783 /* Internationalization */,
+				4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */,
+				4FB5C8B81D63CF6700E9A783 /* ViewController.swift */,
+				4FB5C8BA1D63CF6700E9A783 /* Main.storyboard */,
+				4FB5C8BD1D63CF6700E9A783 /* Assets.xcassets */,
+				4FB5C8BF1D63CF6700E9A783 /* LaunchScreen.storyboard */,
+				4FB5C8C21D63CF6700E9A783 /* Info.plist */,
+			);
+			path = clothingClassifier;
+			sourceTree = "<group>";
+		};
+		4FB5C8CA1D63CF6700E9A783 /* clothingClassifierTests */ = {
+			isa = PBXGroup;
+			children = (
+				4FB5C8CB1D63CF6700E9A783 /* clothingClassifierTests.swift */,
+				4FB5C8CD1D63CF6700E9A783 /* Info.plist */,
+			);
+			path = clothingClassifierTests;
+			sourceTree = "<group>";
+		};
+		4FB5C8D51D63CF6700E9A783 /* clothingClassifierUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4FB5C8D61D63CF6700E9A783 /* clothingClassifierUITests.swift */,
+				4FB5C8D81D63CF6700E9A783 /* Info.plist */,
+			);
+			path = clothingClassifierUITests;
+			sourceTree = "<group>";
+		};
+		4FB5C8E41D63D10B00E9A783 /* Internationalization */ = {
+			isa = PBXGroup;
+			children = (
+				4FB5C8E91D63D13E00E9A783 /* Localizable.strings */,
+			);
+			path = Internationalization;
+			sourceTree = "<group>";
+		};
+		4FB5C8F01D654BE700E9A783 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4FB5C8B21D63CF6600E9A783 /* clothingClassifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FB5C8DB1D63CF6700E9A783 /* Build configuration list for PBXNativeTarget "clothingClassifier" */;
+			buildPhases = (
+				4FB5C8AF1D63CF6600E9A783 /* Sources */,
+				4FB5C8B01D63CF6600E9A783 /* Frameworks */,
+				4FB5C8B11D63CF6600E9A783 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = clothingClassifier;
+			productName = clothingClassifier;
+			productReference = 4FB5C8B31D63CF6700E9A783 /* clothingClassifier.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4FB5C8C61D63CF6700E9A783 /* clothingClassifierTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FB5C8DE1D63CF6700E9A783 /* Build configuration list for PBXNativeTarget "clothingClassifierTests" */;
+			buildPhases = (
+				4FB5C8C31D63CF6700E9A783 /* Sources */,
+				4FB5C8C41D63CF6700E9A783 /* Frameworks */,
+				4FB5C8C51D63CF6700E9A783 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FB5C8C91D63CF6700E9A783 /* PBXTargetDependency */,
+			);
+			name = clothingClassifierTests;
+			productName = clothingClassifierTests;
+			productReference = 4FB5C8C71D63CF6700E9A783 /* clothingClassifierTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4FB5C8D11D63CF6700E9A783 /* clothingClassifierUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FB5C8E11D63CF6700E9A783 /* Build configuration list for PBXNativeTarget "clothingClassifierUITests" */;
+			buildPhases = (
+				4FB5C8CE1D63CF6700E9A783 /* Sources */,
+				4FB5C8CF1D63CF6700E9A783 /* Frameworks */,
+				4FB5C8D01D63CF6700E9A783 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FB5C8D41D63CF6700E9A783 /* PBXTargetDependency */,
+			);
+			name = clothingClassifierUITests;
+			productName = clothingClassifierUITests;
+			productReference = 4FB5C8D21D63CF6700E9A783 /* clothingClassifierUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4FB5C8AB1D63CF6600E9A783 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Camila Alvarez";
+				TargetAttributes = {
+					4FB5C8B21D63CF6600E9A783 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5LCZ9AMV4D;
+					};
+					4FB5C8C61D63CF6700E9A783 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5LCZ9AMV4D;
+						TestTargetID = 4FB5C8B21D63CF6600E9A783;
+					};
+					4FB5C8D11D63CF6700E9A783 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5LCZ9AMV4D;
+						TestTargetID = 4FB5C8B21D63CF6600E9A783;
+					};
+				};
+			};
+			buildConfigurationList = 4FB5C8AE1D63CF6600E9A783 /* Build configuration list for PBXProject "clothingClassifier" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				es,
+			);
+			mainGroup = 4FB5C8AA1D63CF6600E9A783;
+			productRefGroup = 4FB5C8B41D63CF6700E9A783 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4FB5C8B21D63CF6600E9A783 /* clothingClassifier */,
+				4FB5C8C61D63CF6700E9A783 /* clothingClassifierTests */,
+				4FB5C8D11D63CF6700E9A783 /* clothingClassifierUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4FB5C8B11D63CF6600E9A783 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FB5C8C11D63CF6700E9A783 /* LaunchScreen.storyboard in Resources */,
+				4FB5C8E71D63D13E00E9A783 /* Localizable.strings in Resources */,
+				4FB5C8BE1D63CF6700E9A783 /* Assets.xcassets in Resources */,
+				4FB5C8BC1D63CF6700E9A783 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FB5C8C51D63CF6700E9A783 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FB5C8D01D63CF6700E9A783 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4FB5C8AF1D63CF6600E9A783 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */,
+				4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */,
+				4FB5C8F21D654C1800E9A783 /* AdaptableRectangle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FB5C8C31D63CF6700E9A783 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FB5C8CC1D63CF6700E9A783 /* clothingClassifierTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FB5C8CE1D63CF6700E9A783 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FB5C8D71D63CF6700E9A783 /* clothingClassifierUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4FB5C8C91D63CF6700E9A783 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FB5C8B21D63CF6600E9A783 /* clothingClassifier */;
+			targetProxy = 4FB5C8C81D63CF6700E9A783 /* PBXContainerItemProxy */;
+		};
+		4FB5C8D41D63CF6700E9A783 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FB5C8B21D63CF6600E9A783 /* clothingClassifier */;
+			targetProxy = 4FB5C8D31D63CF6700E9A783 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4FB5C8BA1D63CF6700E9A783 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FB5C8BB1D63CF6700E9A783 /* Base */,
+				4FB5C8EA1D63D1AB00E9A783 /* es */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4FB5C8BF1D63CF6700E9A783 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FB5C8C01D63CF6700E9A783 /* Base */,
+				4FB5C8EB1D63D1AB00E9A783 /* es */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4FB5C8E91D63D13E00E9A783 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FB5C8E81D63D13E00E9A783 /* en */,
+				4FB5C8EC1D63D1AB00E9A783 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4FB5C8D91D63CF6700E9A783 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4FB5C8DA1D63CF6700E9A783 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4FB5C8DC1D63CF6700E9A783 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = clothingClassifier/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4FB5C8DD1D63CF6700E9A783 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = clothingClassifier/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4FB5C8DF1D63CF6700E9A783 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = clothingClassifierTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clothingClassifier.app/clothingClassifier";
+			};
+			name = Debug;
+		};
+		4FB5C8E01D63CF6700E9A783 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = clothingClassifierTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clothingClassifier.app/clothingClassifier";
+			};
+			name = Release;
+		};
+		4FB5C8E21D63CF6700E9A783 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = clothingClassifierUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = clothingClassifier;
+			};
+			name = Debug;
+		};
+		4FB5C8E31D63CF6700E9A783 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = clothingClassifierUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = clothingClassifier;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FB5C8AE1D63CF6600E9A783 /* Build configuration list for PBXProject "clothingClassifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FB5C8D91D63CF6700E9A783 /* Debug */,
+				4FB5C8DA1D63CF6700E9A783 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FB5C8DB1D63CF6700E9A783 /* Build configuration list for PBXNativeTarget "clothingClassifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FB5C8DC1D63CF6700E9A783 /* Debug */,
+				4FB5C8DD1D63CF6700E9A783 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FB5C8DE1D63CF6700E9A783 /* Build configuration list for PBXNativeTarget "clothingClassifierTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FB5C8DF1D63CF6700E9A783 /* Debug */,
+				4FB5C8E01D63CF6700E9A783 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FB5C8E11D63CF6700E9A783 /* Build configuration list for PBXNativeTarget "clothingClassifierUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FB5C8E21D63CF6700E9A783 /* Debug */,
+				4FB5C8E31D63CF6700E9A783 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4FB5C8AB1D63CF6600E9A783 /* Project object */;
+}
