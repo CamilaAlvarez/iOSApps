@@ -22,6 +22,10 @@ class AdaptableRectangle: UIImageView {
             rectangleView.frame = CGRectMake(origin!.x, origin!.y, width, height)
         }
         
+        func getBounds()->CGRect{
+            return rectangleView.bounds
+        }
+        
         func changeWholeRectangle(origin origin:CGPoint?, width:CGFloat, height:CGFloat){
             self.origin = origin
             self.width = width
@@ -105,71 +109,75 @@ class AdaptableRectangle: UIImageView {
         self.addExternalSubviews()
     }
 
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         switch touches.count{
         case 1:
             if let touch = touches.first{
                 let position : CGPoint = touch.locationInView(self)
-                let positionY:CGFloat = position.y
-                let positionX:CGFloat = position.x
-                if let origin = rectangleView.origin{
-                    let distanceX:CGFloat = positionX - origin.x
-                    let distanceY:CGFloat = positionY - origin.y
-                    
-                    if distanceX > 0{
-                        rectangleView.width = distanceX
-                        rightView.origin?.x = positionX
-                        rightView.width = self.frame.width - positionX
-                    }
-                    else{
-                        rectangleView.width -= distanceX
-                        rectangleView.origin?.x = positionX
-                        leftView.width = positionX
-                    }
-                    
-                    if distanceY > 0 {
-                        bottomView.origin?.y = positionY
-                        rectangleView.height = distanceY
-                        bottomView.height = self.frame.height - positionY
-                    }
-                    else{
-                        rectangleView.origin?.y = positionY
-                        rectangleView.height -= distanceY
-                        topView.height = positionY
-                    }
-                    leftView.height = rectangleView.height
-                    rightView.height = rectangleView.height
+                if CGRectContainsPoint(self.rectangleView.getBounds(), position){
+                    self.isSliding = true
                 }
                 else{
-                    var yCorner:CGFloat = positionY - (initialHeightWidth/2)
-                    let xCorner:CGFloat = positionX - (initialHeightWidth/2)
-                    var rectangleHeight:CGFloat = initialHeightWidth
-                    if yCorner < 0{
-                        rectangleHeight = initialHeightWidth + yCorner
-                        yCorner = 0
+                    let positionY:CGFloat = position.y
+                    let positionX:CGFloat = position.x
+                    if let origin = rectangleView.origin{
+                        let distanceX:CGFloat = positionX - origin.x
+                        let distanceY:CGFloat = positionY - origin.y
+                    
+                        if distanceX > 0{
+                            rectangleView.width = distanceX
+                            rightView.origin?.x = positionX
+                            rightView.width = self.frame.width - positionX
+                        }
+                        else{
+                            rectangleView.width -= distanceX
+                            rectangleView.origin?.x = positionX
+                            leftView.width = positionX
+                        }
+                    
+                        if distanceY > 0 {
+                            bottomView.origin?.y = positionY
+                            rectangleView.height = distanceY
+                            bottomView.height = self.frame.height - positionY
+                        }
+                        else{
+                            rectangleView.origin?.y = positionY
+                            rectangleView.height -= distanceY
+                            topView.height = positionY
+                        }
+                        leftView.height = rectangleView.height
+                        rightView.height = rectangleView.height
                     }
-                    else if yCorner + initialHeightWidth > self.frame.height{
-                        rectangleHeight = self.frame.height - yCorner
-                    }
+                    else{
+                        var yCorner:CGFloat = positionY - (initialHeightWidth/2)
+                        let xCorner:CGFloat = positionX - (initialHeightWidth/2)
+                        var rectangleHeight:CGFloat = initialHeightWidth
+                        if yCorner < 0{
+                            rectangleHeight = initialHeightWidth + yCorner
+                            yCorner = 0
+                        }
+                        else if yCorner + initialHeightWidth > self.frame.height{
+                            rectangleHeight = self.frame.height - yCorner
+                        }
             
                     
-                    rectangleView.changeWholeRectangle(origin: CGPointMake(xCorner, yCorner), width: initialHeightWidth, height: rectangleHeight)
-                    topView.changeWholeRectangle(origin: CGPointMake(0, 0), width: self.frame.width, height: yCorner)
-                    bottomView.changeWholeRectangle(origin: CGPointMake(0, yCorner+rectangleHeight),
+                        rectangleView.changeWholeRectangle(origin: CGPointMake(xCorner, yCorner), width: initialHeightWidth,    height: rectangleHeight)
+                        topView.changeWholeRectangle(origin: CGPointMake(0, 0), width: self.frame.width, height: yCorner)
+                        bottomView.changeWholeRectangle(origin: CGPointMake(0, yCorner+rectangleHeight),
                                                     width: self.frame.width, height: self.frame.height-rectangleHeight-yCorner)
-                    leftView.changeWholeRectangle(origin: CGPointMake(0, yCorner),
+                        leftView.changeWholeRectangle(origin: CGPointMake(0, yCorner),
                                                   width: positionX-initialHeightWidth/2, height: rectangleHeight)
-                    rightView.changeWholeRectangle(origin: CGPointMake(positionX+initialHeightWidth/2, yCorner),
+                        rightView.changeWholeRectangle(origin: CGPointMake(positionX+initialHeightWidth/2, yCorner),
                                                    width: self.frame.width-positionX-initialHeightWidth/2, height: rectangleHeight)
                     
-
+                    }
+                    rectangleView.updateRectangle()
+                    topView.updateRectangle()
+                    bottomView.updateRectangle()
+                    leftView.updateRectangle()
+                    rightView.updateRectangle()
                 }
-                rectangleView.updateRectangle()
-                topView.updateRectangle()
-                bottomView.updateRectangle()
-                leftView.updateRectangle()
-                rightView.updateRectangle()
-                
             }
         default:
             print(1)

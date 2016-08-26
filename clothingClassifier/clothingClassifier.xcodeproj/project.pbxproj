@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */; };
+		4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */; };
+		4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */; };
 		4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */; };
 		4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8B81D63CF6700E9A783 /* ViewController.swift */; };
 		4FB5C8BC1D63CF6700E9A783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8BA1D63CF6700E9A783 /* Main.storyboard */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRectangle.swift; sourceTree = "<group>"; };
+		4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomRectangle.swift; sourceTree = "<group>"; };
 		4FB5C8B31D63CF6700E9A783 /* clothingClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clothingClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FB5C8B81D63CF6700E9A783 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */,
+				4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */,
+				4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */,
+				4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -286,9 +295,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */,
 				4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */,
 				4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */,
 				4FB5C8F21D654C1800E9A783 /* AdaptableRectangle.swift in Sources */,
+				4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */,
+				4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
