@@ -9,11 +9,12 @@
 import UIKit
 
 class BottomRectangle: Rectangle {
-    override func calculateNewDimensionsFromTouch(touch touch: CGPoint) {
+    override func calculateNewDimensionsFromTouch(touch touch: CGPoint, withOffset offset:CGFloat) {
         if let originPoint = origin {
-            let distanceY = originPoint.y + self.height - touch.y
+            let newOriginY:CGFloat = touch.y + fabs(offset)
+            let distanceY = self.height + originPoint.y - newOriginY
             self.height = distanceY
-            self.origin!.y = touch.y
+            self.origin!.y = newOriginY
         }
     }
 }

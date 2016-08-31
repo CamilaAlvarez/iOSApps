@@ -32,7 +32,7 @@ class Rectangle {
         self.height = height
     }
     
-    func calculateNewDimensionsFromTouch(touch touch:CGPoint){
+    func calculateNewDimensionsFromTouch(touch touch:CGPoint, withOffset offset:CGFloat){
         preconditionFailure("Method must be overriden")
     }
 

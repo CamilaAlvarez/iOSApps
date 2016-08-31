@@ -10,6 +10,10 @@
 		4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */; };
 		4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */; };
 		4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */; };
+		4F3B92BB1D76401E00255932 /* LeftRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BA1D76401E00255932 /* LeftRectangle.swift */; };
+		4F3B92BD1D76583300255932 /* RightRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BC1D76583300255932 /* RightRectangle.swift */; };
+		4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BF1D76617500255932 /* RectangleAdapter.swift */; };
+		4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92C11D766CB100255932 /* CentralRectangle.swift */; };
 		4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */; };
 		4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8B81D63CF6700E9A783 /* ViewController.swift */; };
 		4FB5C8BC1D63CF6700E9A783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8BA1D63CF6700E9A783 /* Main.storyboard */; };
@@ -42,6 +46,10 @@
 		4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRectangle.swift; sourceTree = "<group>"; };
 		4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomRectangle.swift; sourceTree = "<group>"; };
+		4F3B92BA1D76401E00255932 /* LeftRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftRectangle.swift; sourceTree = "<group>"; };
+		4F3B92BC1D76583300255932 /* RightRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightRectangle.swift; sourceTree = "<group>"; };
+		4F3B92BF1D76617500255932 /* RectangleAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleAdapter.swift; sourceTree = "<group>"; };
+		4F3B92C11D766CB100255932 /* CentralRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralRectangle.swift; sourceTree = "<group>"; };
 		4FB5C8B31D63CF6700E9A783 /* clothingClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clothingClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FB5C8B81D63CF6700E9A783 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F3B92BE1D765FCE00255932 /* Rectangle */ = {
+			isa = PBXGroup;
+			children = (
+				4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */,
+				4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */,
+				4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */,
+				4F3B92BA1D76401E00255932 /* LeftRectangle.swift */,
+				4F3B92BC1D76583300255932 /* RightRectangle.swift */,
+				4F3B92C11D766CB100255932 /* CentralRectangle.swift */,
+			);
+			name = Rectangle;
+			sourceTree = "<group>";
+		};
 		4FB5C8AA1D63CF6600E9A783 = {
 			isa = PBXGroup;
 			children = (
@@ -152,9 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */,
-				4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */,
-				4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */,
-				4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */,
+				4F3B92BE1D765FCE00255932 /* Rectangle */,
+				4F3B92BF1D76617500255932 /* RectangleAdapter.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -297,9 +317,13 @@
 			files = (
 				4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */,
 				4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */,
+				4F3B92BD1D76583300255932 /* RightRectangle.swift in Sources */,
+				4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */,
 				4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */,
 				4FB5C8F21D654C1800E9A783 /* AdaptableRectangle.swift in Sources */,
 				4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */,
+				4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */,
+				4F3B92BB1D76401E00255932 /* LeftRectangle.swift in Sources */,
 				4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
