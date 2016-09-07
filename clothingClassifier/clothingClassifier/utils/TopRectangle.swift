@@ -10,10 +10,11 @@ import UIKit
 
 class TopRectangle: Rectangle {
 
-    override func calculateNewDimensionsFromTouch(touch touch: CGPoint, withOffset offset:CGFloat) {
+    override func calculateNewDimensionsFromPoint(point point: CGPoint, withOffset offset:CGFloat) {
         if origin != nil {
-            let newEndY:CGFloat = touch.y - fabs(offset)
+            let newEndY:CGFloat = point.y - fabs(offset)
             self.height = newEndY
+            updateRectangle()
         }
     }
 }

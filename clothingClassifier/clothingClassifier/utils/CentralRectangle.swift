@@ -8,43 +8,142 @@
 
 import UIKit
 
+enum DimensionGrowingDirection : CGFloat {
+    case OUT = -1
+    case INSIDE = 1
+}
+
+struct Offset {
+    var top:CGFloat = 0
+    var bottom:CGFloat = 0
+    var right:CGFloat = 0
+    var left:CGFloat = 0
+}
+
+let borderOffset:CGFloat = 5
 class CentralRectangle: Rectangle {
     
-    func getOffsetFromTouch(touch:CGPoint) -> [String : CGFloat] {
-        let offsetDictionary:[String:CGFloat] = ["top": 0, "bottom": 0, "right":0, "left":0]
+    // Offsets work like invisible wall the other rectangles can't cross
+    func getOffsetFromPoint(point:CGPoint) -> Offset {
+        let offset = Offset()
         if let originPoint = origin {
-            guard rectangleView.pointInside(touch, withEvent: nil) else {
-                return offsetDictionary
-            }
-            let leftOffset = fabs(touch.x - originPoint.x)
-            let rightOffset = fabs(originPoint.x + width - touch.x)
-            let topOffset = fabs(touch.y - originPoint.y)
-            let bottomOffset = fabs(originPoint.y + height - touch.y)
-            return ["top": topOffset, "bottom": bottomOffset, "right":rightOffset, "left":leftOffset]
+            let leftOffset = fabs(point.x - originPoint.x)
+            let rightOffset = fabs(originPoint.x + width - point.x)
+            let topOffset = fabs(point.y - originPoint.y)
+            let bottomOffset = fabs(originPoint.y + height - point.y)
+            return Offset(top: topOffset, bottom: bottomOffset, right: rightOffset, left: leftOffset)
         }
-        return offsetDictionary
+        return offset
     }
     
-    override func calculateNewDimensionsFromTouch(touch touch: CGPoint, withOffset offset: CGFloat = 0) {
-        if !rectangleView.pointInside(touch, withEvent: nil){
-            if let originPoint = origin {
-                if touch.x > originPoint.x{
-                    width = touch.x - originPoint.x
-                }
-                else{
-                    width += fabs(originPoint.x - touch.x)
-                    origin!.x = touch.x
+    override func calculateNewDimensionsFromPoint(point point: CGPoint, withOffset offset: CGFloat = 0) {
+        if !self.containsPoint(point){
+            switch containsPoint(point, withOffset: borderOffset) {
+            case RectangleBorderTouch.noTouch:
+                if let originPoint = origin {
+                    if point.x > originPoint.x{
+                        width = point.x - originPoint.x
+                    }
+                    else{
+                        width += fabs(originPoint.x - point.x)
+                    }
                     
+                    if point.y > originPoint.y{
+                        height = point.y - originPoint.y
+                    }
+                    else{
+                        height += fabs(originPoint.y - point.y)
+                    }
+                    
+                    origin!.x = min(originPoint.x, point.x)
+                    origin!.y = min(originPoint.y, point.y)
+                    updateRectangle()
                 }
-                
-                if touch.y > originPoint.y{
-                    height = touch.y
-                }
-                else{
-                    height += fabs(originPoint.y - touch.y)
-                    origin!.y = touch.y
-                }
+
+            default:
+                break
+            }
+            
+        }
+    }
+    
+    func translateRectangle(from startingPoint:CGPoint, to finishPoint:CGPoint){
+        if var originPoint = origin{
+            switch containsPoint(startingPoint, withOffset: borderOffset){
+            case RectangleBorderTouch.noTouch:
+                origin!.x = originPoint.x + (finishPoint.x - startingPoint.x)
+                origin!.y = originPoint.y + (finishPoint.y - startingPoint.y)
+            case RectangleBorderTouch.topLeftBorder:
+                originPoint.x = finishPoint.x
+                originPoint.y = finishPoint.y
+                changeDimension({() in return DimensionGrowingDirection.INSIDE.rawValue},
+                                          originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+            case RectangleBorderTouch.topRightBorder:
+                originPoint.y = finishPoint.y
+                changeVerticalDimension({() in return DimensionGrowingDirection.OUT.rawValue},
+                                originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+            case RectangleBorderTouch.leftBorder:
+                originPoint.x = finishPoint.x
+                changeHorizontalDimension({() in return DimensionGrowingDirection.INSIDE.rawValue},
+                                originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+            case RectangleBorderTouch.bottomLeftBorder:
+                originPoint.x = finishPoint.x
+                changeDimension({() in return DimensionGrowingDirection.OUT.rawValue},
+                                originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+            case RectangleBorderTouch.topBorder:
+                originPoint.y = finishPoint.y
+                changeHorizontalDimension({() in return DimensionGrowingDirection.INSIDE.rawValue},
+                                originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+            case RectangleBorderTouch.bottomRightBorder:
+                changeDimension({() in return DimensionGrowingDirection.OUT.rawValue},
+                                originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+            case RectangleBorderTouch.rightBorder:
+                changeHorizontalDimension({() in return DimensionGrowingDirection.OUT.rawValue},
+                                originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+            case RectangleBorderTouch.bottomBorder:
+                changeVerticalDimension({() in return DimensionGrowingDirection.OUT.rawValue},
+                                originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
             }
         }
+        else{
+            let originY = min(startingPoint.y, finishPoint.y)
+            let originX = min(startingPoint.x , finishPoint.x)
+            origin = CGPointMake(originX, originY)
+            
+            //To keep the rectangle from being invisible
+            height = max(fabs(finishPoint.y - startingPoint.y),1)
+            width = max(fabs(finishPoint.x - startingPoint.x),1)
+        }
+        updateRectangle()
+    }
+    
+    private func changeHorizontalDimension(growthFuntion:()->CGFloat, originPoint:CGPoint, startingPoint:CGPoint, finishPoint:CGPoint){
+        var newOrigin = originPoint
+        var newWidth = width + growthFuntion()*(startingPoint.x - finishPoint.x)
+        
+        if newWidth < 0 {
+            newWidth = fabs(newWidth)
+            newOrigin.x += newWidth
+        }
+        
+        origin!.x = newOrigin.x
+        width = newWidth
+    }
+    
+    private func changeVerticalDimension(growthFuntion:()->CGFloat, originPoint:CGPoint, startingPoint:CGPoint, finishPoint:CGPoint){
+        var newOrigin = originPoint
+        var newHeight = height + growthFuntion()*(startingPoint.y - finishPoint.y)
+        if newHeight < 0{
+            newHeight = fabs(newHeight)
+            newOrigin.y += newHeight
+        }
+        
+        origin!.y = newOrigin.y
+        height = newHeight
+    }
+    
+    private func changeDimension(growthFuntion:()->CGFloat, originPoint:CGPoint, startingPoint:CGPoint, finishPoint:CGPoint){
+        changeVerticalDimension(growthFuntion, originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+        changeHorizontalDimension(growthFuntion, originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
     }
 }

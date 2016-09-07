@@ -8,8 +8,6 @@
 
 import UIKit
 
-private var myContext = 0
-
 class AdaptableRectangle: UIImageView {
     private var adapter: RectangleAdapter!
     private var isSliding = false
@@ -18,41 +16,44 @@ class AdaptableRectangle: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        adapter = RectangleAdapter(forView: self)
+        self.userInteractionEnabled = true
+        let originXCropper = CGRectGetMidX(self.frame) - initialHeightWidth/2
+        let originYCropper = CGRectGetMidY(self.frame) - initialHeightWidth/2
+        let cropperRect = CGRectMake(originXCropper, originYCropper, initialHeightWidth, initialHeightWidth)
+        adapter = RectangleAdapter(forView: self, withCropperRect: cropperRect)
     }
     
     
     convenience init(withImageView imageView: UIImageView){
         self.init(frame: imageView.frame)
+        self.image = imageView.image
         self.contentMode = imageView.contentMode
         
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        adapter = RectangleAdapter(forView: self)
+        self.userInteractionEnabled = true
+        let originXCropper = self.center.x - initialHeightWidth/2
+        let originYCropper = self.center.y - initialHeightWidth/2
+        let cropperRect = CGRectMake(originXCropper, originYCropper, initialHeightWidth, initialHeightWidth)
+        adapter = RectangleAdapter(forView: self, withCropperRect: cropperRect)
+
     }
 
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        switch touches.count{
-        case 1:
-            if let touch = touches.first{
-                
-            }
-        default:
-            print(1)
+        for touch in touches{
+            let point = touch.locationInView(self)
+            adapter.updateRectangles(forPoint: point)
         }
     }
     
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print(touches)
+        for touch in touches {
+            let previousPoint = touch.previousLocationInView(self)
+            let currentPoint = touch.locationInView(self)
+            adapter.moveCentralRectangle(fromPoint: previousPoint, to: currentPoint)
+        }
     }
 }

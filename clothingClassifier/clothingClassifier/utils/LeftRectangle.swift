@@ -8,12 +8,11 @@
 
 import UIKit
 
-class LeftRectangle: Rectangle {
+class LeftRectangle: LateralRectangle {
     
-    override func calculateNewDimensionsFromTouch(touch touch: CGPoint, withOffset offset:CGFloat) {
-        if origin != nil {
-            let newEndX:CGFloat = touch.x - fabs(offset)
-            self.width = newEndX
-        }
+    override func modifyHorizontalMeasure(point point: CGPoint, withOffset offset: CGFloat) {
+        let newEndX:CGFloat = point.x - fabs(offset)
+        self.width = newEndX
     }
+    
 }
