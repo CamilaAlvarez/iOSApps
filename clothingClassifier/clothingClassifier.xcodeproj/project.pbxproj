@@ -14,6 +14,7 @@
 		4F3B92BD1D76583300255932 /* RightRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BC1D76583300255932 /* RightRectangle.swift */; };
 		4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BF1D76617500255932 /* RectangleAdapter.swift */; };
 		4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92C11D766CB100255932 /* CentralRectangle.swift */; };
+		4F8F7D801D863DD900173064 /* LateralRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */; };
 		4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */; };
 		4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8B81D63CF6700E9A783 /* ViewController.swift */; };
 		4FB5C8BC1D63CF6700E9A783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8BA1D63CF6700E9A783 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		4F3B92BC1D76583300255932 /* RightRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightRectangle.swift; sourceTree = "<group>"; };
 		4F3B92BF1D76617500255932 /* RectangleAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleAdapter.swift; sourceTree = "<group>"; };
 		4F3B92C11D766CB100255932 /* CentralRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralRectangle.swift; sourceTree = "<group>"; };
+		4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LateralRectangle.swift; sourceTree = "<group>"; };
 		4FB5C8B31D63CF6700E9A783 /* clothingClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clothingClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FB5C8B81D63CF6700E9A783 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				4F3B92BA1D76401E00255932 /* LeftRectangle.swift */,
 				4F3B92BC1D76583300255932 /* RightRectangle.swift */,
 				4F3B92C11D766CB100255932 /* CentralRectangle.swift */,
+				4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */,
 			);
 			name = Rectangle;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */,
+				4F8F7D801D863DD900173064 /* LateralRectangle.swift in Sources */,
 				4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */,
 				4F3B92BD1D76583300255932 /* RightRectangle.swift in Sources */,
 				4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */,

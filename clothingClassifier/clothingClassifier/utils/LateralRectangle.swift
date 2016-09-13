@@ -9,7 +9,7 @@
 import UIKit
 
 class LateralRectangle: Rectangle {
-
+    
     func calculateNewDimensionsFromPoint(point point:CGPoint, withOffset offset:CGFloat, newHeight:CGFloat, newOriginY:CGFloat){
         if origin != nil{
             calculateNewDimensionsFromPoint(point: point, withOffset: offset)

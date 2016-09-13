@@ -27,10 +27,36 @@ class CentralRectangle: Rectangle {
     func getOffsetFromPoint(point:CGPoint) -> Offset {
         let offset = Offset()
         if let originPoint = origin {
-            let leftOffset = fabs(point.x - originPoint.x)
-            let rightOffset = fabs(originPoint.x + width - point.x)
-            let topOffset = fabs(point.y - originPoint.y)
-            let bottomOffset = fabs(originPoint.y + height - point.y)
+            var leftOffset = fabs(point.x - originPoint.x)
+            var rightOffset = fabs(originPoint.x + width - point.x)
+            var topOffset = fabs(point.y - originPoint.y)
+            var bottomOffset = fabs(originPoint.y + height - point.y)
+            if !self.containsPoint(point){
+                switch self.containsPoint(point, withOffset: borderOffset){
+                case RectangleBorderTouch.topBorder:
+                    topOffset *= -1
+                case RectangleBorderTouch.bottomBorder:
+                    bottomOffset *= -1
+                case RectangleBorderTouch.leftBorder:
+                    leftOffset *= -1
+                case RectangleBorderTouch.rightBorder:
+                    rightOffset *= -1
+                case RectangleBorderTouch.bottomLeftBorder:
+                    bottomOffset *= -1
+                    leftOffset *= -1
+                case RectangleBorderTouch.topLeftBorder:
+                    topOffset *= -1
+                    leftOffset *= -1
+                case RectangleBorderTouch.bottomRightBorder:
+                    bottomOffset *= -1
+                    rightOffset *= -1
+                case RectangleBorderTouch.topRightBorder:
+                    topOffset *= -1
+                    rightOffset *= -1
+                default:
+                    break
+                }
+            }
             return Offset(top: topOffset, bottom: bottomOffset, right: rightOffset, left: leftOffset)
         }
         return offset
@@ -80,19 +106,23 @@ class CentralRectangle: Rectangle {
                                           originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
             case RectangleBorderTouch.topRightBorder:
                 originPoint.y = finishPoint.y
-                changeVerticalDimension({() in return DimensionGrowingDirection.OUT.rawValue},
-                                originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+                changeVerticalDimension({() in return DimensionGrowingDirection.INSIDE.rawValue},
+                                        originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+                changeHorizontalDimension({() in return DimensionGrowingDirection.OUT.rawValue},
+                                          originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
             case RectangleBorderTouch.leftBorder:
                 originPoint.x = finishPoint.x
                 changeHorizontalDimension({() in return DimensionGrowingDirection.INSIDE.rawValue},
                                 originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
             case RectangleBorderTouch.bottomLeftBorder:
                 originPoint.x = finishPoint.x
-                changeDimension({() in return DimensionGrowingDirection.OUT.rawValue},
+                changeHorizontalDimension({() in return DimensionGrowingDirection.INSIDE.rawValue},
+                                        originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
+                changeVerticalDimension({() in return DimensionGrowingDirection.OUT.rawValue},
                                 originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
             case RectangleBorderTouch.topBorder:
                 originPoint.y = finishPoint.y
-                changeHorizontalDimension({() in return DimensionGrowingDirection.INSIDE.rawValue},
+                changeVerticalDimension({() in return DimensionGrowingDirection.INSIDE.rawValue},
                                 originPoint: originPoint, startingPoint: startingPoint, finishPoint: finishPoint)
             case RectangleBorderTouch.bottomRightBorder:
                 changeDimension({() in return DimensionGrowingDirection.OUT.rawValue},
@@ -123,7 +153,12 @@ class CentralRectangle: Rectangle {
         
         if newWidth < 0 {
             newWidth = fabs(newWidth)
-            newOrigin.x += newWidth
+            if finishPoint.x < startingPoint.x {
+                newOrigin.x -= newWidth
+            }
+            else{
+                newOrigin.x += newWidth
+            }
         }
         
         origin!.x = newOrigin.x
@@ -133,9 +168,14 @@ class CentralRectangle: Rectangle {
     private func changeVerticalDimension(growthFuntion:()->CGFloat, originPoint:CGPoint, startingPoint:CGPoint, finishPoint:CGPoint){
         var newOrigin = originPoint
         var newHeight = height + growthFuntion()*(startingPoint.y - finishPoint.y)
-        if newHeight < 0{
+        if newHeight < 0 {
             newHeight = fabs(newHeight)
-            newOrigin.y += newHeight
+            if finishPoint.y < startingPoint.y {
+                newOrigin.y -= newHeight
+            }
+            else{
+                newOrigin.y += height
+            }
         }
         
         origin!.y = newOrigin.y

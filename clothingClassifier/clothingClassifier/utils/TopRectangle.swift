@@ -12,8 +12,9 @@ class TopRectangle: Rectangle {
 
     override func calculateNewDimensionsFromPoint(point point: CGPoint, withOffset offset:CGFloat) {
         if origin != nil {
-            let newEndY:CGFloat = point.y - fabs(offset)
+            let newEndY:CGFloat = point.y - offset
             self.height = newEndY
+            
             updateRectangle()
         }
     }
