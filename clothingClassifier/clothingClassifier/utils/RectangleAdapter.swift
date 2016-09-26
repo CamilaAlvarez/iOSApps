@@ -23,7 +23,7 @@ class RectangleAdapter: NSObject {
     
     init(forView parentView:UIView!) {
         super.init()
-        let initialFrame : CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
+        let initialFrame : CGRect = CGRect.zero
         let topView = createGenericView(frame: initialFrame, withParent: parentView)
         let bottomView = createGenericView(frame: initialFrame, withParent: parentView)
         let leftView = createGenericView(frame: initialFrame, withParent: parentView)

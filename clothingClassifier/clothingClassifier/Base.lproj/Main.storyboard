@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="NO" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <development version="7000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Title-->
@@ -17,21 +19,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KV-gt-VPN">
-                                <rect key="frame" x="20" y="28" width="560" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KV-gt-VPN">
+                                <rect key="frame" x="20" y="28" width="335" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L7g-qj-ye3" customClass="AdaptableRectangle" customModule="clothingClassifier" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="58" width="600" height="414"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L7g-qj-ye3" customClass="AdaptableRectangle" customModule="clothingClassifier" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="58" width="375" height="543"/>
                                 <color key="backgroundColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="LpS-Gf-9un">
-                                <rect key="frame" x="20" y="480" width="560" height="112"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="LpS-Gf-9un">
+                                <rect key="frame" x="20" y="609" width="560" height="50"/>
                                 <subviews>
                                     <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="W3T-la-Vf5">
-                                        <rect key="frame" x="0.0" y="0.0" width="284" height="112"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="112" id="gj3-dB-hRP">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="50"/>
@@ -52,21 +54,21 @@
                                         </variation>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTY-DM-veE">
-                                        <rect key="frame" x="276" y="0.0" width="284" height="112"/>
+                                        <rect key="frame" x="276" y="0.0" width="284" height="50"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="LpS-Gf-9un" secondAttribute="trailing" constant="20" id="4FN-Bg-utV"/>
                             <constraint firstAttribute="trailing" secondItem="1KV-gt-VPN" secondAttribute="trailing" constant="20" id="C8M-lu-seE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LpS-Gf-9un" secondAttribute="bottom" constant="8" id="GfW-r5-qCs"/>
-                            <constraint firstAttribute="trailing" secondItem="L7g-qj-ye3" secondAttribute="trailing" id="IJw-fP-hie"/>
                             <constraint firstItem="L7g-qj-ye3" firstAttribute="top" secondItem="1KV-gt-VPN" secondAttribute="bottom" constant="8" id="Ki4-r3-H6N"/>
                             <constraint firstItem="LpS-Gf-9un" firstAttribute="top" secondItem="L7g-qj-ye3" secondAttribute="bottom" constant="8" id="M5J-jt-rdo"/>
                             <constraint firstItem="L7g-qj-ye3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Oyd-cV-M5L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L7g-qj-ye3" secondAttribute="trailing" constant="-16" id="dZ9-Jx-51y"/>
                             <constraint firstItem="LpS-Gf-9un" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="hHz-be-dJ7"/>
                             <constraint firstItem="1KV-gt-VPN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="mtD-87-dXa"/>
                             <constraint firstItem="1KV-gt-VPN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="rA7-x7-Xk1"/>
