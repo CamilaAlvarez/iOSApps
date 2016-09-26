@@ -10,7 +10,7 @@ import UIKit
 
 class TopRectangle: Rectangle {
 
-    override func calculateNewDimensionsFromPoint(point point: CGPoint, withOffset offset:CGFloat) {
+    override func calculateNewDimensionsFromPoint(point: CGPoint, withOffset offset:CGFloat) {
         if origin != nil {
             let newEndY:CGFloat = point.y - offset
             self.height = newEndY

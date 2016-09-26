@@ -40,24 +40,24 @@ class Rectangle {
     }
     
     func updateRectangle(){
-        rectangleView.frame = CGRectMake(origin!.x, origin!.y, width, height)
+        rectangleView.frame = CGRect(x: origin!.x, y: origin!.y, width: width, height: height)
     }
     
     func getBounds()->CGRect{
         return rectangleView.bounds
     }
     
-    func changeWholeRectangle(origin origin:CGPoint?, width:CGFloat, height:CGFloat){
+    func changeWholeRectangle(origin:CGPoint?, width:CGFloat, height:CGFloat){
         self.origin = origin
         self.width = width
         self.height = height
     }
     
-    func calculateNewDimensionsFromPoint(point point:CGPoint, withOffset offset:CGFloat = 0){
+    func calculateNewDimensionsFromPoint(point:CGPoint, withOffset offset:CGFloat = 0){
         preconditionFailure("Method must be overriden")
     }
 
-    func containsPoint(point:CGPoint)->Bool{
+    func containsPoint(_ point:CGPoint)->Bool{
         if let originPoint = origin{
             return point.x > originPoint.x && point.y > originPoint.y
                 && point.x < originPoint.x + width &&  point.y < originPoint.y + height
@@ -65,12 +65,12 @@ class Rectangle {
         return false
     }
     
-    func containsPoint(point:CGPoint, withOffset offset:CGFloat)->RectangleBorderTouch{
+    func containsPoint(_ point:CGPoint, withOffset offset:CGFloat)->RectangleBorderTouch{
         if let originPoint = origin{
-            let leftCondition = point.x < originPoint.x + offset && point.x > originPoint.x - offset && point.y >= originPoint.y && point.y <= originPoint.y + height
-            let rightCondition = point.x < originPoint.x + width + offset && point.x > originPoint.x + width - offset && point.y >= originPoint.y && point.y <= originPoint.y + height
-            let topCondition = point.y < originPoint.y + offset && point.y > originPoint.y - offset && point.x >= originPoint.x && point.x <= originPoint.x + width
-            let bottomCondition = point.y < originPoint.y + height + offset && point.y > originPoint.y + height - offset && point.x >= originPoint.x && point.x <= originPoint.x + width
+            let leftCondition = point.x < originPoint.x + offset && point.x > originPoint.x - offset && point.y >= originPoint.y - offset && point.y <= originPoint.y + height + offset
+            let rightCondition = point.x < originPoint.x + width + offset && point.x > originPoint.x + width - offset && point.y >= originPoint.y - offset && point.y <= originPoint.y + height + offset
+            let topCondition = point.y < originPoint.y + offset && point.y > originPoint.y - offset && point.x >= originPoint.x - offset && point.x <= originPoint.x + width + offset
+            let bottomCondition = point.y < originPoint.y + height + offset && point.y > originPoint.y + height - offset && point.x >= originPoint.x-offset && point.x <= originPoint.x + width + offset
             
             if topCondition && leftCondition{
                 return RectangleBorderTouch.topLeftBorder

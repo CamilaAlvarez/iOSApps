@@ -10,7 +10,7 @@ import UIKit
 
 class RightRectangle: LateralRectangle {
     
-    override func modifyHorizontalMeasure(point point: CGPoint, withOffset offset: CGFloat) {
+    override func modifyHorizontalMeasure(point: CGPoint, withOffset offset: CGFloat) {
         if let originPoint = origin{
             let newOriginX:CGFloat = point.x + offset
             let distanceX:CGFloat = self.width + originPoint.x - newOriginX

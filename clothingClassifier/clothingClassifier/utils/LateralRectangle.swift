@@ -10,7 +10,7 @@ import UIKit
 
 class LateralRectangle: Rectangle {
     
-    func calculateNewDimensionsFromPoint(point point:CGPoint, withOffset offset:CGFloat, newHeight:CGFloat, newOriginY:CGFloat){
+    func calculateNewDimensionsFromPoint(point:CGPoint, withOffset offset:CGFloat, newHeight:CGFloat, newOriginY:CGFloat){
         if origin != nil{
             calculateNewDimensionsFromPoint(point: point, withOffset: offset)
             height = newHeight
@@ -19,7 +19,7 @@ class LateralRectangle: Rectangle {
         }
     }
     
-    override func calculateNewDimensionsFromPoint(point point: CGPoint, withOffset offset: CGFloat) {
+    override func calculateNewDimensionsFromPoint(point: CGPoint, withOffset offset: CGFloat) {
         if let originPoint = origin{
             modifyHorizontalMeasure(point: point, withOffset: offset)
             if point.y > originPoint.y{
@@ -32,7 +32,7 @@ class LateralRectangle: Rectangle {
         }
     }
     
-    func modifyHorizontalMeasure(point point: CGPoint, withOffset offset: CGFloat){
+    func modifyHorizontalMeasure(point: CGPoint, withOffset offset: CGFloat){
         preconditionFailure("Method need to be overriden")
     }
 }

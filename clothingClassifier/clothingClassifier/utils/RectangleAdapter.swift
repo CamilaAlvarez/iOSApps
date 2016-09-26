@@ -8,16 +8,22 @@
 
 import UIKit
 
+enum rectangleConstants : CGFloat{
+    case borderOffset = 5
+    case lineWidth = 2
+    case minimunDimesion = 10
+}
+
 class RectangleAdapter: NSObject {
-    private var topRectangle:TopRectangle!
-    private var bottomRectangle:BottomRectangle!
-    private var leftRectangle:LeftRectangle!
-    private var rightRectangle:RightRectangle!
-    private var mainRectangle:CentralRectangle!
+    fileprivate var topRectangle:TopRectangle!
+    fileprivate var bottomRectangle:BottomRectangle!
+    fileprivate var leftRectangle:LeftRectangle!
+    fileprivate var rightRectangle:RightRectangle!
+    fileprivate var mainRectangle:CentralRectangle!
     
     init(forView parentView:UIView!) {
         super.init()
-        let initialFrame : CGRect = CGRectMake(0, 0, 0, 0)
+        let initialFrame : CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
         let topView = createGenericView(frame: initialFrame, withParent: parentView)
         let bottomView = createGenericView(frame: initialFrame, withParent: parentView)
         let leftView = createGenericView(frame: initialFrame, withParent: parentView)
@@ -34,20 +40,20 @@ class RectangleAdapter: NSObject {
         super.init()
         let parentViewSize = parentView.frame.size
         let mainView = createGenericView(frame: rect, withParent: parentView)
-        mainView.backgroundColor = UIColor.clearColor()
-        mainView.layer.borderWidth = 2
-        mainView.layer.borderColor = UIColor.whiteColor().CGColor
+        mainView.backgroundColor = UIColor.clear
+        mainView.layer.borderWidth = rectangleConstants.lineWidth.rawValue
+        mainView.layer.borderColor = UIColor.white.cgColor
         mainRectangle = CentralRectangle(rectangleView: mainView)
-        let topView = createGenericView(frame: CGRectMake(0, 0, parentViewSize.width, rect.origin.y)
+        let topView = createGenericView(frame: CGRect(x: 0, y: 0, width: parentViewSize.width, height: rect.origin.y)
             , withParent: parentView)
         let bottomOriginY = rect.origin.y+rect.height
-        let bottomView = createGenericView(frame: CGRectMake(0, bottomOriginY, parentViewSize.width,
-            parentViewSize.height-bottomOriginY), withParent: parentView)
-        let leftView = createGenericView(frame: CGRectMake(0, rect.origin.y, rect.origin.x, rect.height)
+        let bottomView = createGenericView(frame: CGRect(x: 0, y: bottomOriginY, width: parentViewSize.width,
+            height: parentViewSize.height-bottomOriginY), withParent: parentView)
+        let leftView = createGenericView(frame: CGRect(x: 0, y: rect.origin.y, width: rect.origin.x, height: rect.height)
             , withParent: parentView)
         let rightOriginX = rect.origin.x+rect.width
-        let rightView = createGenericView(frame: CGRectMake(rightOriginX, rect.origin.y ,
-            parentViewSize.width - rightOriginX, rect.height), withParent: parentView)
+        let rightView = createGenericView(frame: CGRect(x: rightOriginX, y: rect.origin.y ,
+            width: parentViewSize.width - rightOriginX, height: rect.height), withParent: parentView)
         
         topRectangle = TopRectangle(rectangleView: topView)
         bottomRectangle = BottomRectangle(rectangleView: bottomView)
@@ -55,14 +61,14 @@ class RectangleAdapter: NSObject {
         rightRectangle = RightRectangle(rectangleView: rightView)
     }
 
-    private func createGenericView(frame frame: CGRect, withParent parent:UIView)->UIView{
+    fileprivate func createGenericView(frame: CGRect, withParent parent:UIView)->UIView{
         let view = UIView(frame: frame)
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
         parent.addSubview(view)
         return view
     }
     
-    private func updateSecondaryRectangles(point:CGPoint){
+    fileprivate func updateSecondaryRectangles(_ point:CGPoint){
         let offset = mainRectangle.getOffsetFromPoint(point)
         topRectangle.calculateNewDimensionsFromPoint(point: point, withOffset: offset.top)
         bottomRectangle.calculateNewDimensionsFromPoint(point: point, withOffset: offset.bottom)

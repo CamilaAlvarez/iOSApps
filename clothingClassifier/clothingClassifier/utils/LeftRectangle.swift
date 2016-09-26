@@ -10,7 +10,7 @@ import UIKit
 
 class LeftRectangle: LateralRectangle {
     
-    override func modifyHorizontalMeasure(point point: CGPoint, withOffset offset: CGFloat) {
+    override func modifyHorizontalMeasure(point: CGPoint, withOffset offset: CGFloat) {
         let newEndX:CGFloat = point.x - offset
         self.width = newEndX
     }

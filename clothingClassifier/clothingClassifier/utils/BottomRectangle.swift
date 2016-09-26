@@ -9,7 +9,7 @@
 import UIKit
 
 class BottomRectangle: Rectangle {
-    override func calculateNewDimensionsFromPoint(point point: CGPoint, withOffset offset:CGFloat) {
+    override func calculateNewDimensionsFromPoint(point: CGPoint, withOffset offset:CGFloat) {
         if let originPoint = origin {
             let newOriginY:CGFloat = point.y + offset
             let distanceY = self.height + (originPoint.y - newOriginY)

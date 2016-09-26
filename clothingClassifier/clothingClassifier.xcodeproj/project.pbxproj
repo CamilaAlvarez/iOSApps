@@ -251,15 +251,18 @@
 					4FB5C8B21D63CF6600E9A783 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5LCZ9AMV4D;
+						LastSwiftMigration = 0800;
 					};
 					4FB5C8C61D63CF6700E9A783 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5LCZ9AMV4D;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4FB5C8B21D63CF6600E9A783;
 					};
 					4FB5C8D11D63CF6700E9A783 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5LCZ9AMV4D;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4FB5C8B21D63CF6600E9A783;
 					};
 				};
@@ -487,6 +490,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -498,6 +502,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -509,6 +514,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clothingClassifier.app/clothingClassifier";
 			};
 			name = Debug;
@@ -521,6 +527,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clothingClassifier.app/clothingClassifier";
 			};
 			name = Release;
@@ -532,6 +539,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = clothingClassifier;
 			};
 			name = Debug;
@@ -543,6 +551,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = clothingClassifier;
 			};
 			name = Release;
