@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */; };
+		4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */; };
+		4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */; };
+		4F3B92BB1D76401E00255932 /* LeftRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BA1D76401E00255932 /* LeftRectangle.swift */; };
+		4F3B92BD1D76583300255932 /* RightRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BC1D76583300255932 /* RightRectangle.swift */; };
+		4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BF1D76617500255932 /* RectangleAdapter.swift */; };
+		4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92C11D766CB100255932 /* CentralRectangle.swift */; };
+		4F8F7D801D863DD900173064 /* LateralRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */; };
+		4FA1E4631D99EDB70007567B /* CropView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA1E4621D99EDB70007567B /* CropView.xib */; };
 		4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */; };
 		4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8B81D63CF6700E9A783 /* ViewController.swift */; };
-		4FB5C8BC1D63CF6700E9A783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8BA1D63CF6700E9A783 /* Main.storyboard */; };
 		4FB5C8BE1D63CF6700E9A783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8BD1D63CF6700E9A783 /* Assets.xcassets */; };
 		4FB5C8C11D63CF6700E9A783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8BF1D63CF6700E9A783 /* LaunchScreen.storyboard */; };
 		4FB5C8CC1D63CF6700E9A783 /* clothingClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8CB1D63CF6700E9A783 /* clothingClassifierTests.swift */; };
@@ -36,10 +44,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRectangle.swift; sourceTree = "<group>"; };
+		4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomRectangle.swift; sourceTree = "<group>"; };
+		4F3B92BA1D76401E00255932 /* LeftRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftRectangle.swift; sourceTree = "<group>"; };
+		4F3B92BC1D76583300255932 /* RightRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightRectangle.swift; sourceTree = "<group>"; };
+		4F3B92BF1D76617500255932 /* RectangleAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleAdapter.swift; sourceTree = "<group>"; };
+		4F3B92C11D766CB100255932 /* CentralRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralRectangle.swift; sourceTree = "<group>"; };
+		4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LateralRectangle.swift; sourceTree = "<group>"; };
+		4FA1E4621D99EDB70007567B /* CropView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CropView.xib; sourceTree = "<group>"; };
 		4FB5C8B31D63CF6700E9A783 /* clothingClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clothingClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FB5C8B81D63CF6700E9A783 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4FB5C8BB1D63CF6700E9A783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FB5C8BD1D63CF6700E9A783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FB5C8C01D63CF6700E9A783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FB5C8C21D63CF6700E9A783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,7 +66,6 @@
 		4FB5C8D61D63CF6700E9A783 /* clothingClassifierUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clothingClassifierUITests.swift; sourceTree = "<group>"; };
 		4FB5C8D81D63CF6700E9A783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FB5C8E81D63D13E00E9A783 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4FB5C8EA1D63D1AB00E9A783 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		4FB5C8EB1D63D1AB00E9A783 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4FB5C8EC1D63D1AB00E9A783 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptableRectangle.swift; sourceTree = "<group>"; };
@@ -81,6 +96,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F3B92BE1D765FCE00255932 /* Rectangle */ = {
+			isa = PBXGroup;
+			children = (
+				4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */,
+				4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */,
+				4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */,
+				4F3B92BA1D76401E00255932 /* LeftRectangle.swift */,
+				4F3B92BC1D76583300255932 /* RightRectangle.swift */,
+				4F3B92C11D766CB100255932 /* CentralRectangle.swift */,
+				4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */,
+			);
+			name = Rectangle;
+			sourceTree = "<group>";
+		};
+		4FA1E4611D99ED890007567B /* CropView */ = {
+			isa = PBXGroup;
+			children = (
+				4FB5C8B81D63CF6700E9A783 /* ViewController.swift */,
+				4FA1E4621D99EDB70007567B /* CropView.xib */,
+			);
+			name = CropView;
+			sourceTree = "<group>";
+		};
 		4FB5C8AA1D63CF6600E9A783 = {
 			isa = PBXGroup;
 			children = (
@@ -104,11 +142,10 @@
 		4FB5C8B51D63CF6700E9A783 /* clothingClassifier */ = {
 			isa = PBXGroup;
 			children = (
+				4FA1E4611D99ED890007567B /* CropView */,
 				4FB5C8F01D654BE700E9A783 /* utils */,
 				4FB5C8E41D63D10B00E9A783 /* Internationalization */,
 				4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */,
-				4FB5C8B81D63CF6700E9A783 /* ViewController.swift */,
-				4FB5C8BA1D63CF6700E9A783 /* Main.storyboard */,
 				4FB5C8BD1D63CF6700E9A783 /* Assets.xcassets */,
 				4FB5C8BF1D63CF6700E9A783 /* LaunchScreen.storyboard */,
 				4FB5C8C21D63CF6700E9A783 /* Info.plist */,
@@ -146,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */,
+				4F3B92BE1D765FCE00255932 /* Rectangle */,
+				4F3B92BF1D76617500255932 /* RectangleAdapter.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -219,15 +258,18 @@
 					4FB5C8B21D63CF6600E9A783 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5LCZ9AMV4D;
+						LastSwiftMigration = 0800;
 					};
 					4FB5C8C61D63CF6700E9A783 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5LCZ9AMV4D;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4FB5C8B21D63CF6600E9A783;
 					};
 					4FB5C8D11D63CF6700E9A783 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5LCZ9AMV4D;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4FB5C8B21D63CF6600E9A783;
 					};
 				};
@@ -261,7 +303,7 @@
 				4FB5C8C11D63CF6700E9A783 /* LaunchScreen.storyboard in Resources */,
 				4FB5C8E71D63D13E00E9A783 /* Localizable.strings in Resources */,
 				4FB5C8BE1D63CF6700E9A783 /* Assets.xcassets in Resources */,
-				4FB5C8BC1D63CF6700E9A783 /* Main.storyboard in Resources */,
+				4FA1E4631D99EDB70007567B /* CropView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,9 +328,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */,
+				4F8F7D801D863DD900173064 /* LateralRectangle.swift in Sources */,
 				4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */,
+				4F3B92BD1D76583300255932 /* RightRectangle.swift in Sources */,
+				4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */,
 				4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */,
 				4FB5C8F21D654C1800E9A783 /* AdaptableRectangle.swift in Sources */,
+				4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */,
+				4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */,
+				4F3B92BB1D76401E00255932 /* LeftRectangle.swift in Sources */,
+				4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,15 +374,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4FB5C8BA1D63CF6700E9A783 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4FB5C8BB1D63CF6700E9A783 /* Base */,
-				4FB5C8EA1D63D1AB00E9A783 /* es */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4FB5C8BF1D63CF6700E9A783 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -447,6 +488,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -458,6 +500,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -469,6 +512,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clothingClassifier.app/clothingClassifier";
 			};
 			name = Debug;
@@ -481,6 +525,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clothingClassifier.app/clothingClassifier";
 			};
 			name = Release;
@@ -492,6 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = clothingClassifier;
 			};
 			name = Debug;
@@ -503,6 +549,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifierUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = clothingClassifier;
 			};
 			name = Release;
