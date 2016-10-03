@@ -1,0 +1,20 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'clothingClassifier' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for clothingClassifier
+    pod 'FMDB'
+  target 'clothingClassifierTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'clothingClassifierUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
