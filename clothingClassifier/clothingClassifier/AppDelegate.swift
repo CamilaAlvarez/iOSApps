@@ -10,16 +10,25 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    private let dbName = "db"
+    private let dbExtension = "sqlite"
     var window: UIWindow?
-
+    var dbPath: String = String()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let dbHandler = DBHandler.getInstance(forDatabaseWithName: dbName, andExtension: dbExtension)
+        guard dbHandler.loadDB() else {
+            return false
+        }
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
         let rootViewController = ViewController(nibName: "CropView", bundle: nil)
         self.window?.rootViewController = rootViewController
+        window?.makeKeyAndVisible()
         return true
     }
-
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
