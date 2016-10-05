@@ -11,10 +11,16 @@
 		4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */; };
 		4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */; };
 		4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */; };
+		4F1F3A401DA474C700B6BB97 /* LeftBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F3A3E1DA474C700B6BB97 /* LeftBarViewController.swift */; };
+		4F1F3A411DA474C700B6BB97 /* LeftBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F1F3A3F1DA474C700B6BB97 /* LeftBarViewController.xib */; };
+		4F1F3A431DA4757C00B6BB97 /* LeftBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F3A421DA4757C00B6BB97 /* LeftBarDelegate.swift */; };
+		4F1F3A451DA48F2200B6BB97 /* LeftBarOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F1F3A441DA48F2200B6BB97 /* LeftBarOptionCell.xib */; };
+		4F1F3A471DA4904B00B6BB97 /* LeftBarOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F3A461DA4904B00B6BB97 /* LeftBarOptionCell.swift */; };
 		4F3B92BB1D76401E00255932 /* LeftRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BA1D76401E00255932 /* LeftRectangle.swift */; };
 		4F3B92BD1D76583300255932 /* RightRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BC1D76583300255932 /* RightRectangle.swift */; };
 		4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BF1D76617500255932 /* RectangleAdapter.swift */; };
 		4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92C11D766CB100255932 /* CentralRectangle.swift */; };
+		4F58DB951DA3408A006B4A1D /* LateralBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F58DB941DA3408A006B4A1D /* LateralBarController.swift */; };
 		4F618D4D1DA1A7EB003A220C /* DBHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F618D4C1DA1A7EA003A220C /* DBHandler.swift */; };
 		4F618D501DA1EC56003A220C /* Categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F618D521DA1EC56003A220C /* Categories.plist */; };
 		4F618D551DA1FC5A003A220C /* PlistFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F618D541DA1FC5A003A220C /* PlistFileManager.swift */; };
@@ -58,10 +64,16 @@
 		4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRectangle.swift; sourceTree = "<group>"; };
 		4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomRectangle.swift; sourceTree = "<group>"; };
+		4F1F3A3E1DA474C700B6BB97 /* LeftBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBarViewController.swift; sourceTree = "<group>"; };
+		4F1F3A3F1DA474C700B6BB97 /* LeftBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftBarViewController.xib; sourceTree = "<group>"; };
+		4F1F3A421DA4757C00B6BB97 /* LeftBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBarDelegate.swift; sourceTree = "<group>"; };
+		4F1F3A441DA48F2200B6BB97 /* LeftBarOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftBarOptionCell.xib; sourceTree = "<group>"; };
+		4F1F3A461DA4904B00B6BB97 /* LeftBarOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBarOptionCell.swift; sourceTree = "<group>"; };
 		4F3B92BA1D76401E00255932 /* LeftRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftRectangle.swift; sourceTree = "<group>"; };
 		4F3B92BC1D76583300255932 /* RightRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightRectangle.swift; sourceTree = "<group>"; };
 		4F3B92BF1D76617500255932 /* RectangleAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleAdapter.swift; sourceTree = "<group>"; };
 		4F3B92C11D766CB100255932 /* CentralRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralRectangle.swift; sourceTree = "<group>"; };
+		4F58DB941DA3408A006B4A1D /* LateralBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LateralBarController.swift; sourceTree = "<group>"; };
 		4F618D4C1DA1A7EA003A220C /* DBHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHandler.swift; sourceTree = "<group>"; };
 		4F618D511DA1EC56003A220C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/Categories.plist; sourceTree = "<group>"; };
 		4F618D531DA1EC5D003A220C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Categories.plist; sourceTree = "<group>"; };
@@ -153,6 +165,19 @@
 			name = Rectangle;
 			sourceTree = "<group>";
 		};
+		4F58DB931DA3408A006B4A1D /* navigationFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4F58DB941DA3408A006B4A1D /* LateralBarController.swift */,
+				4F1F3A3E1DA474C700B6BB97 /* LeftBarViewController.swift */,
+				4F1F3A3F1DA474C700B6BB97 /* LeftBarViewController.xib */,
+				4F1F3A421DA4757C00B6BB97 /* LeftBarDelegate.swift */,
+				4F1F3A441DA48F2200B6BB97 /* LeftBarOptionCell.xib */,
+				4F1F3A461DA4904B00B6BB97 /* LeftBarOptionCell.swift */,
+			);
+			path = navigationFiles;
+			sourceTree = "<group>";
+		};
 		4FA1E4611D99ED890007567B /* CropView */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +212,7 @@
 		4FB5C8B51D63CF6700E9A783 /* clothingClassifier */ = {
 			isa = PBXGroup;
 			children = (
+				4F58DB931DA3408A006B4A1D /* navigationFiles */,
 				4F1288471D9F39F90095291C /* supportingFiles */,
 				4F1288441D9F38290095291C /* database */,
 				4FA1E4611D99ED890007567B /* CropView */,
@@ -380,9 +406,11 @@
 				4F618D501DA1EC56003A220C /* Categories.plist in Resources */,
 				4FB5C8C11D63CF6700E9A783 /* LaunchScreen.storyboard in Resources */,
 				4FB5C8E71D63D13E00E9A783 /* Localizable.strings in Resources */,
+				4F1F3A411DA474C700B6BB97 /* LeftBarViewController.xib in Resources */,
 				4FB5C8BE1D63CF6700E9A783 /* Assets.xcassets in Resources */,
 				4F1288461D9F38290095291C /* db.sqlite in Resources */,
 				4FA1E4631D99EDB70007567B /* CropView.xib in Resources */,
+				4F1F3A451DA48F2200B6BB97 /* LeftBarOptionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,8 +565,12 @@
 				4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */,
 				4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */,
 				4F618D4D1DA1A7EB003A220C /* DBHandler.swift in Sources */,
+				4F58DB951DA3408A006B4A1D /* LateralBarController.swift in Sources */,
 				4FB5C8F21D654C1800E9A783 /* AdaptableRectangle.swift in Sources */,
+				4F1F3A401DA474C700B6BB97 /* LeftBarViewController.swift in Sources */,
 				4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */,
+				4F1F3A431DA4757C00B6BB97 /* LeftBarDelegate.swift in Sources */,
+				4F1F3A471DA4904B00B6BB97 /* LeftBarOptionCell.swift in Sources */,
 				4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */,
 				4F3B92BB1D76401E00255932 /* LeftRectangle.swift in Sources */,
 				4F618D551DA1FC5A003A220C /* PlistFileManager.swift in Sources */,
