@@ -8,9 +8,14 @@
 
 import UIKit
 
+enum barState{
+    case opened
+    case closed
+}
+
 protocol CenterControllerDelegate {
-    func toggleBar()
-    func animateLateralBar()
+    func toggleBar(forState currentState:barState)
+    func animateLateralBar(forState currentState:barState)
     func headerViewForNavigation() -> UIView?
 }
 
