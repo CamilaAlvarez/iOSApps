@@ -9,13 +9,32 @@
 import UIKit
 
 class LateralBarController: UIViewController {
-    private var centerViewController:UIViewController!
+    private var centerViewNavigationController:CenterViewNavigationController
+    private var centerViewController:UIViewController
     private var leftViewController:UIViewController?
 
+    
+    init(withInitialCenterViewController viewController:UIViewController) {
+        centerViewController = viewController
+        centerViewNavigationController = CenterViewNavigationController(rootViewController: viewController)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        let centerController = UIViewController(coder: aDecoder)!
+        centerViewController = centerController
+        centerViewNavigationController = CenterViewNavigationController(rootViewController: centerController)
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        centerViewNavigationController.navigationBar.isTranslucent = false
+        self.view.addSubview(centerViewNavigationController.view)
+        self.addChildViewController(centerViewNavigationController)
+        centerViewNavigationController.didMove(toParentViewController: self)
+        /* To avoid having the navigation bar cover part of the view */
+        
     }
 
     override func didReceiveMemoryWarning() {

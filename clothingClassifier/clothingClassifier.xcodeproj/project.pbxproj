@@ -34,6 +34,8 @@
 		4FB5C8D71D63CF6700E9A783 /* clothingClassifierUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8D61D63CF6700E9A783 /* clothingClassifierUITests.swift */; };
 		4FB5C8E71D63D13E00E9A783 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FB5C8E91D63D13E00E9A783 /* Localizable.strings */; };
 		4FB5C8F21D654C1800E9A783 /* AdaptableRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */; };
+		4FB6C9A51DA5DEF9002D0746 /* CenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6C9A41DA5DEF9002D0746 /* CenterControllerDelegate.swift */; };
+		4FB6C9A71DA5E1FD002D0746 /* CenterViewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6C9A61DA5E1FD002D0746 /* CenterViewNavigationController.swift */; };
 		72157686C7C52A406209B081 /* Pods_clothingClassifierTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE9CE80FED123FCB125058E /* Pods_clothingClassifierTests.framework */; };
 		89B7EB7F034A79F9CB627B02 /* Pods_clothingClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA35035FBB01FBE338217CC /* Pods_clothingClassifier.framework */; };
 		ECAE28765E4CC30D6418B852 /* Pods_clothingClassifierUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D905603675E4DD7DB8E0962 /* Pods_clothingClassifierUITests.framework */; };
@@ -96,6 +98,8 @@
 		4FB5C8EB1D63D1AB00E9A783 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4FB5C8EC1D63D1AB00E9A783 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptableRectangle.swift; sourceTree = "<group>"; };
+		4FB6C9A41DA5DEF9002D0746 /* CenterControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterControllerDelegate.swift; sourceTree = "<group>"; };
+		4FB6C9A61DA5E1FD002D0746 /* CenterViewNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewNavigationController.swift; sourceTree = "<group>"; };
 		66E775378F2F0A94BE9DD085 /* Pods-clothingClassifierUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clothingClassifierUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-clothingClassifierUITests/Pods-clothingClassifierUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		85E3706CF82F61FCCEE5400B /* Pods-clothingClassifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clothingClassifier.release.xcconfig"; path = "Pods/Target Support Files/Pods-clothingClassifier/Pods-clothingClassifier.release.xcconfig"; sourceTree = "<group>"; };
 		8AA35035FBB01FBE338217CC /* Pods_clothingClassifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_clothingClassifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +178,8 @@
 				4F1F3A421DA4757C00B6BB97 /* LeftBarDelegate.swift */,
 				4F1F3A441DA48F2200B6BB97 /* LeftBarOptionCell.xib */,
 				4F1F3A461DA4904B00B6BB97 /* LeftBarOptionCell.swift */,
+				4FB6C9A41DA5DEF9002D0746 /* CenterControllerDelegate.swift */,
+				4FB6C9A61DA5E1FD002D0746 /* CenterViewNavigationController.swift */,
 			);
 			path = navigationFiles;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */,
 				4F3B92BD1D76583300255932 /* RightRectangle.swift in Sources */,
 				4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */,
+				4FB6C9A51DA5DEF9002D0746 /* CenterControllerDelegate.swift in Sources */,
 				4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */,
 				4F618D4D1DA1A7EB003A220C /* DBHandler.swift in Sources */,
 				4F58DB951DA3408A006B4A1D /* LateralBarController.swift in Sources */,
@@ -571,6 +578,7 @@
 				4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */,
 				4F1F3A431DA4757C00B6BB97 /* LeftBarDelegate.swift in Sources */,
 				4F1F3A471DA4904B00B6BB97 /* LeftBarOptionCell.swift in Sources */,
+				4FB6C9A71DA5E1FD002D0746 /* CenterViewNavigationController.swift in Sources */,
 				4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */,
 				4F3B92BB1D76401E00255932 /* LeftRectangle.swift in Sources */,
 				4F618D551DA1FC5A003A220C /* PlistFileManager.swift in Sources */,
