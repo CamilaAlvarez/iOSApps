@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,13 +19,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HmD-yi-xnD">
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="HmD-yi-xnD" secondAttribute="height" multiplier="375:667" id="WXR-oX-BkK"/>
+                    </constraints>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="HmD-yi-xnD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="63n-Zm-rHu"/>
-                <constraint firstAttribute="trailing" secondItem="HmD-yi-xnD" secondAttribute="trailing" id="6I7-ua-2bJ"/>
+                <constraint firstItem="HmD-yi-xnD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="63n-Zm-rHu"/>
                 <constraint firstItem="HmD-yi-xnD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Acp-Sl-BG3"/>
                 <constraint firstAttribute="bottom" secondItem="HmD-yi-xnD" secondAttribute="bottom" id="MLQ-g9-eu0"/>
             </constraints>

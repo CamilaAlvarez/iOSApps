@@ -10,7 +10,11 @@ import UIKit
 
 class CenterViewNavigationController: UINavigationController {
     var centralDelegate: CenterControllerDelegate?
-    private var currentState:barState = .closed
+    private var currentState:barState = .closed {
+        didSet{
+            centralDelegate?.addShadow(forNewState: currentState)
+        }
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -60,8 +64,15 @@ class CenterViewNavigationController: UINavigationController {
     }
     
     func openLeftBar(_ sender:UIBarButtonItem){
-        centralDelegate?.toggleBar(forState: currentState)
-        centralDelegate?.animateLateralBar(forState: currentState)
+        switch currentState {
+        case .opened:
+            centralDelegate?.animateLateralBar(forState: currentState, completion:{_ in
+                self.centralDelegate?.toggleBar(forState: self.currentState)})
+        case .closed:
+            centralDelegate?.toggleBar(forState: currentState)
+            centralDelegate?.animateLateralBar(forState: currentState, completion: nil)
+        }
+        
         changeState()
         
     }

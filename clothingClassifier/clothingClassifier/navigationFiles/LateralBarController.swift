@@ -36,8 +36,6 @@ class LateralBarController: UIViewController, CenterControllerDelegate {
         self.view.addSubview(centerViewNavigationController.view)
         self.addChildViewController(centerViewNavigationController)
         centerViewNavigationController.didMove(toParentViewController: self)
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,29 +50,40 @@ class LateralBarController: UIViewController, CenterControllerDelegate {
             guard let viewController = leftViewController else{
                 fatalError("Inconsistent state")
             }
+            viewController.view.frame.size.height = centerViewNavigationController.view.bounds.height
+            viewController.view.frame.size.width = 180
+            self.view.insertSubview(viewController.view, at: 0)
             self.addChildViewController(viewController)
             viewController.didMove(toParentViewController: self)
         case .opened:
             leftViewController?.view.removeFromSuperview()
+            leftViewController?.willMove(toParentViewController: nil)
             leftViewController?.removeFromParentViewController()
             leftViewController = nil
-            
         }
     }
     
-    func animateLateralBar(forState currentState:barState){
+    func animateLateralBar(forState currentState:barState, completion:((Bool)->Void)?){
         let centerView:UIView = centerViewNavigationController.view
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             switch currentState{
             case .closed:
                 centerView.frame.origin.x += 180
             case .opened:
-                centerView.frame.origin.x -= 180
+                centerView.frame.origin.x = 0
             }
-            
-        })
+        }, completion: completion)
     }
     
+    func addShadow(forNewState state: barState) {
+        let centerViewLayer = centerViewNavigationController.view.layer
+        switch state {
+        case .opened:
+            centerViewLayer.shadowOpacity = 0.8
+        case .closed:
+            centerViewLayer.shadowOpacity = 0
+        }
+    }
 
     
 

@@ -15,8 +15,9 @@ enum barState{
 
 protocol CenterControllerDelegate {
     func toggleBar(forState currentState:barState)
-    func animateLateralBar(forState currentState:barState)
+    func animateLateralBar(forState currentState:barState, completion:((Bool)->Void)?)
     func headerViewForNavigation() -> UIView?
+    func addShadow(forNewState state:barState)
 }
 
 extension CenterControllerDelegate {
