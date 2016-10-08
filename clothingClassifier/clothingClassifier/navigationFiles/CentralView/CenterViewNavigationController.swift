@@ -10,11 +10,7 @@ import UIKit
 
 class CenterViewNavigationController: UINavigationController {
     var centralDelegate: CenterControllerDelegate?
-    private var currentState:barState = .closed {
-        didSet{
-            centralDelegate?.addShadow(forNewState: currentState)
-        }
-    }
+    private var currentState:barState = .closed
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -33,10 +29,16 @@ class CenterViewNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addShadow()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func addShadow() {
+        let centerViewLayer = self.view.layer
+        centerViewLayer.shadowOpacity = 0.8
     }
     
     private func finishNavigationBar(){

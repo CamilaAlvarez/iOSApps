@@ -16,7 +16,7 @@ protocol LeftBarDelegate {
     func numberOfOptionGroups(forView tableView:UITableView) -> Int
     func optionListHeaderView() -> UIView?
     func getIconForOption(atIndexPath indexPath:IndexPath) -> UIImage?
-    func getViewForOption(atIndexPath indexPath:IndexPath) -> UIView
+    func getViewForOption(atIndexPath indexPath:IndexPath, withParentView view:UIView) -> UIView
 }
 
 //Implement default behaviour for optional methods

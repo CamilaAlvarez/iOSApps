@@ -23,6 +23,10 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="HmD-yi-xnD" secondAttribute="height" multiplier="375:667" id="WXR-oX-BkK"/>
                     </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Thq-9t-aUN"/>
+                        <outlet property="delegate" destination="-1" id="rZ2-po-krJ"/>
+                    </connections>
                 </tableView>
             </subviews>
             <constraints>

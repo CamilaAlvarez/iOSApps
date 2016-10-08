@@ -29,6 +29,9 @@ class LeftBarViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0{
+            return 1
+        }
         return delegate!.numberOfOptions(forGroup: section, inView: tableView)
     }
     
@@ -52,13 +55,14 @@ class LeftBarViewController: UIViewController, UITableViewDelegate, UITableViewD
         default:
             let cell = optionsTableView.dequeueReusableCell(withIdentifier: "OptionCell") as! LeftBarOptionCell
             cell.iconView.image = delegate?.getIconForOption(atIndexPath: indexPath)
-            cell.optionContentView.addSubview(delegate!.getViewForOption(atIndexPath: indexPath))
+            cell.optionContentView.addSubview(delegate!.getViewForOption(atIndexPath: indexPath, withParentView: cell.optionContentView))
             return cell
         }
     }
     
+    /* plus 1 for the header */
     func numberOfSections(in tableView: UITableView) -> Int {
-        return delegate!.numberOfOptionGroups(forView: tableView)
+        return delegate!.numberOfOptionGroups(forView: tableView) + 1
     }
 
 }

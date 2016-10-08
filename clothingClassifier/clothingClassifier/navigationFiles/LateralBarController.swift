@@ -8,10 +8,11 @@
 
 import UIKit
 
-class LateralBarController: UIViewController, CenterControllerDelegate {
+class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarDelegate {
     private var centerViewNavigationController:CenterViewNavigationController
     private var centerViewController:UIViewController
     private var leftViewController:LeftBarViewController?
+    private var optionList:[String : String] = PlistFileManager.loadPlistFile(named: "leftBarOptions") as! [String : String]
 
     
     init(withInitialCenterViewController viewController:UIViewController) {
@@ -50,6 +51,7 @@ class LateralBarController: UIViewController, CenterControllerDelegate {
             guard let viewController = leftViewController else{
                 fatalError("Inconsistent state")
             }
+            leftViewController?.delegate = self
             viewController.view.frame.size.height = centerViewNavigationController.view.bounds.height
             viewController.view.frame.size.width = 180
             self.view.insertSubview(viewController.view, at: 0)
@@ -75,16 +77,39 @@ class LateralBarController: UIViewController, CenterControllerDelegate {
         }, completion: completion)
     }
     
-    func addShadow(forNewState state: barState) {
-        let centerViewLayer = centerViewNavigationController.view.layer
-        switch state {
-        case .opened:
-            centerViewLayer.shadowOpacity = 0.8
-        case .closed:
-            centerViewLayer.shadowOpacity = 0
-        }
+    func didSelectOption(from tableView:UITableView, atIndexPath indexPath:IndexPath){}
+    
+    func numberOfOptions(forGroup groupNumber:Int, inView tableView:UITableView) -> Int{
+        return optionList.count
     }
-
+    
+    func numberOfOptionGroups(forView tableView:UITableView) -> Int{
+        return 1
+    }
+    
+    func getIconForOption(atIndexPath indexPath:IndexPath) -> UIImage?{
+        return nil
+    }
+    
+    func getViewForOption(atIndexPath indexPath:IndexPath, withParentView view:UIView) -> UIView{
+        var labelFrame = view.frame
+        labelFrame.origin.y += 8
+        labelFrame.size.height -= 16
+        let labelView = UILabel(frame: labelFrame)
+        
+        switch indexPath.row {
+        case 0:
+            labelView.text = optionList["classify"]
+        case 1:
+            labelView.text = optionList["review"]
+        case 2:
+            labelView.text = optionList["sync"]
+        default:
+            break
+        }
+        
+        return labelView
+    }
     
 
 }
