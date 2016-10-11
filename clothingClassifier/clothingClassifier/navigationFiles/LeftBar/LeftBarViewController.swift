@@ -8,13 +8,20 @@
 
 import UIKit
 
+extension UITableViewCell{
+    func getCellWidth()->CGFloat{
+        return LeftBarViewController.cellWidth
+    }
+}
+
 class LeftBarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var delegate: LeftBarDelegate?
     @IBOutlet var optionsTableView:UITableView!
-
+    static var cellWidth:CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LeftBarViewController.cellWidth = delegate!.getLeftBarWidth()
         optionsTableView.register(UINib(nibName: "LeftBarOptionCell", bundle: nil), forCellReuseIdentifier: "OptionCell")
         optionsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "emptyCell")
     }
@@ -48,12 +55,16 @@ class LeftBarViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch indexPath.section {
         case 0:
             let cell = optionsTableView.dequeueReusableCell(withIdentifier: "emptyCell")!
-            if let headerView = delegate?.optionListHeaderView(){
-                cell.addSubview(headerView)
+            guard let headerView = delegate?.optionListHeaderView() else{
+                cell.frame.size.height = 0
+                return cell
             }
+            cell.addSubview(headerView)
             return cell
         default:
             let cell = optionsTableView.dequeueReusableCell(withIdentifier: "OptionCell") as! LeftBarOptionCell
+            /*cell.frame.size.width = 180
+            cell.layoutIfNeeded()*/
             cell.iconView.image = delegate?.getIconForOption(atIndexPath: indexPath)
             cell.optionContentView.addSubview(delegate!.getViewForOption(atIndexPath: indexPath, withParentView: cell.optionContentView))
             return cell

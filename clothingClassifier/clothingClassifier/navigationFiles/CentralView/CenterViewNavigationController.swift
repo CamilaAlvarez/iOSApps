@@ -69,14 +69,14 @@ class CenterViewNavigationController: UINavigationController {
         switch currentState {
         case .opened:
             centralDelegate?.animateLateralBar(forState: currentState, completion:{_ in
-                self.centralDelegate?.toggleBar(forState: self.currentState)})
+                self.centralDelegate?.toggleBar(forState: self.currentState)
+                self.changeState()
+            })
         case .closed:
             centralDelegate?.toggleBar(forState: currentState)
             centralDelegate?.animateLateralBar(forState: currentState, completion: nil)
+            changeState()
         }
-        
-        changeState()
-        
     }
     
     private func changeState(){

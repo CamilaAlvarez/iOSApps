@@ -13,6 +13,7 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
     private var centerViewController:UIViewController
     private var leftViewController:LeftBarViewController?
     private var optionList:[String : String] = PlistFileManager.loadPlistFile(named: "leftBarOptions") as! [String : String]
+    private var leftBarwidth:CGFloat? = nil
 
     
     init(withInitialCenterViewController viewController:UIViewController) {
@@ -53,7 +54,7 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
             }
             leftViewController?.delegate = self
             viewController.view.frame.size.height = centerViewNavigationController.view.bounds.height
-            viewController.view.frame.size.width = 180
+            viewController.view.frame.size.width = getLeftBarWidth()
             self.view.insertSubview(viewController.view, at: 0)
             self.addChildViewController(viewController)
             viewController.didMove(toParentViewController: self)
@@ -70,7 +71,7 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             switch currentState{
             case .closed:
-                centerView.frame.origin.x += 180
+                centerView.frame.origin.x += self.getLeftBarWidth()
             case .opened:
                 centerView.frame.origin.x = 0
             }
@@ -92,9 +93,11 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
     }
     
     func getViewForOption(atIndexPath indexPath:IndexPath, withParentView view:UIView) -> UIView{
-        var labelFrame = view.frame
+        var labelFrame = view.bounds
         labelFrame.origin.y += 8
         labelFrame.size.height -= 16
+        labelFrame.size.width -= 8
+
         let labelView = UILabel(frame: labelFrame)
         
         switch indexPath.row {
@@ -111,5 +114,15 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
         return labelView
     }
     
+    func getLeftBarWidth() -> CGFloat{
+        guard let width = leftBarwidth else{
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let window:UIWindow = appDelegate.window!
+            let windowFrame = window.frame.size
+            leftBarwidth = 3*windowFrame.width/4
+            return leftBarwidth!
+        }
+        return width
+    }
 
 }

@@ -17,6 +17,7 @@ protocol LeftBarDelegate {
     func optionListHeaderView() -> UIView?
     func getIconForOption(atIndexPath indexPath:IndexPath) -> UIImage?
     func getViewForOption(atIndexPath indexPath:IndexPath, withParentView view:UIView) -> UIView
+    func getLeftBarWidth() -> CGFloat
 }
 
 //Implement default behaviour for optional methods
