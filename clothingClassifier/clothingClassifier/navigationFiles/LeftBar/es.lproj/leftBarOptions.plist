@@ -5,7 +5,7 @@
 	<key>classify</key>
 	<string>Clasificar</string>
 	<key>review</key>
-	<string>Revisar imágenes no enviadas</string>
+	<string>Imágenes etiquetadas</string>
 	<key>sync</key>
 	<string>Sincronizar</string>
 </dict>

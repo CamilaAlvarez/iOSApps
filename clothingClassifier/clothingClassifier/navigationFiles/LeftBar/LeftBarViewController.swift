@@ -66,8 +66,6 @@ class LeftBarViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         default:
             let cell = optionsTableView.dequeueReusableCell(withIdentifier: "OptionCell") as! LeftBarOptionCell
-            /*cell.frame.size.width = 180
-            cell.layoutIfNeeded()*/
             cell.iconView.image = delegate?.getIconForOption(atIndexPath: indexPath)
             cell.optionContentView.addSubview(delegate!.getViewForOption(atIndexPath: indexPath, withParentView: cell.optionContentView))
             return cell

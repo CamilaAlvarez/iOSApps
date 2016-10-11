@@ -5,7 +5,7 @@
 	<key>classify</key>
 	<string>Classify</string>
 	<key>review</key>
-	<string>Review non sent images</string>
+	<string>Labeled images</string>
 	<key>sync</key>
 	<string>Synchronize</string>
 </dict>

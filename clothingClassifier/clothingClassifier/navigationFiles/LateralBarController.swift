@@ -14,6 +14,7 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
     private var leftViewController:LeftBarViewController?
     private var optionList:[String : String] = PlistFileManager.loadPlistFile(named: "leftBarOptions") as! [String : String]
     private var leftBarwidth:CGFloat? = nil
+    private let margin:CGFloat = 8
 
     
     init(withInitialCenterViewController viewController:UIViewController) {
@@ -96,11 +97,12 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
     
     func getViewForOption(atIndexPath indexPath:IndexPath, withParentView view:UIView) -> UIView{
         var labelFrame = view.bounds
-        labelFrame.origin.y += 8
-        labelFrame.size.height -= 16
-        labelFrame.size.width -= 8
+        labelFrame.origin.y += margin
+        labelFrame.size.height -= 2*margin
+        labelFrame.size.width -= margin
 
         let labelView = UILabel(frame: labelFrame)
+        labelView.numberOfLines = 0
         
         switch indexPath.row {
         case 0:
