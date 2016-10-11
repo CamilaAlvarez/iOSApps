@@ -11,10 +11,19 @@
 		4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */; };
 		4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */; };
 		4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */; };
+		4F362AE21DA89CEF0094B6FF /* LeftBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F362ADD1DA89CEF0094B6FF /* LeftBarDelegate.swift */; };
+		4F362AE31DA89CEF0094B6FF /* LeftBarOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F362ADE1DA89CEF0094B6FF /* LeftBarOptionCell.swift */; };
+		4F362AE41DA89CEF0094B6FF /* LeftBarOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F362ADF1DA89CEF0094B6FF /* LeftBarOptionCell.xib */; };
+		4F362AE51DA89CEF0094B6FF /* LeftBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F362AE01DA89CEF0094B6FF /* LeftBarViewController.swift */; };
+		4F362AE61DA89CEF0094B6FF /* LeftBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F362AE11DA89CEF0094B6FF /* LeftBarViewController.xib */; };
+		4F362AEA1DA89D390094B6FF /* CenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F362AE81DA89D390094B6FF /* CenterControllerDelegate.swift */; };
+		4F362AEB1DA89D390094B6FF /* CenterViewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F362AE91DA89D390094B6FF /* CenterViewNavigationController.swift */; };
+		4F362AEE1DA8A0400094B6FF /* leftBarOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F362AF01DA8A0400094B6FF /* leftBarOptions.plist */; };
 		4F3B92BB1D76401E00255932 /* LeftRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BA1D76401E00255932 /* LeftRectangle.swift */; };
 		4F3B92BD1D76583300255932 /* RightRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BC1D76583300255932 /* RightRectangle.swift */; };
 		4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92BF1D76617500255932 /* RectangleAdapter.swift */; };
 		4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B92C11D766CB100255932 /* CentralRectangle.swift */; };
+		4F58DB951DA3408A006B4A1D /* LateralBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F58DB941DA3408A006B4A1D /* LateralBarController.swift */; };
 		4F618D4D1DA1A7EB003A220C /* DBHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F618D4C1DA1A7EA003A220C /* DBHandler.swift */; };
 		4F618D501DA1EC56003A220C /* Categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F618D521DA1EC56003A220C /* Categories.plist */; };
 		4F618D551DA1FC5A003A220C /* PlistFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F618D541DA1FC5A003A220C /* PlistFileManager.swift */; };
@@ -58,10 +67,20 @@
 		4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRectangle.swift; sourceTree = "<group>"; };
 		4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomRectangle.swift; sourceTree = "<group>"; };
+		4F362ADD1DA89CEF0094B6FF /* LeftBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBarDelegate.swift; sourceTree = "<group>"; };
+		4F362ADE1DA89CEF0094B6FF /* LeftBarOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBarOptionCell.swift; sourceTree = "<group>"; };
+		4F362ADF1DA89CEF0094B6FF /* LeftBarOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftBarOptionCell.xib; sourceTree = "<group>"; };
+		4F362AE01DA89CEF0094B6FF /* LeftBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBarViewController.swift; sourceTree = "<group>"; };
+		4F362AE11DA89CEF0094B6FF /* LeftBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftBarViewController.xib; sourceTree = "<group>"; };
+		4F362AE81DA89D390094B6FF /* CenterControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterControllerDelegate.swift; sourceTree = "<group>"; };
+		4F362AE91DA89D390094B6FF /* CenterViewNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewNavigationController.swift; sourceTree = "<group>"; };
+		4F362AEF1DA8A0400094B6FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/leftBarOptions.plist; sourceTree = "<group>"; };
+		4F362AF11DA8A0420094B6FF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/leftBarOptions.plist; sourceTree = "<group>"; };
 		4F3B92BA1D76401E00255932 /* LeftRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftRectangle.swift; sourceTree = "<group>"; };
 		4F3B92BC1D76583300255932 /* RightRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightRectangle.swift; sourceTree = "<group>"; };
 		4F3B92BF1D76617500255932 /* RectangleAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleAdapter.swift; sourceTree = "<group>"; };
 		4F3B92C11D766CB100255932 /* CentralRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralRectangle.swift; sourceTree = "<group>"; };
+		4F58DB941DA3408A006B4A1D /* LateralBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LateralBarController.swift; sourceTree = "<group>"; };
 		4F618D4C1DA1A7EA003A220C /* DBHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHandler.swift; sourceTree = "<group>"; };
 		4F618D511DA1EC56003A220C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/Categories.plist; sourceTree = "<group>"; };
 		4F618D531DA1EC5D003A220C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Categories.plist; sourceTree = "<group>"; };
@@ -139,6 +158,28 @@
 			name = supportingFiles;
 			sourceTree = "<group>";
 		};
+		4F362ADC1DA89CEF0094B6FF /* LeftBar */ = {
+			isa = PBXGroup;
+			children = (
+				4F362ADD1DA89CEF0094B6FF /* LeftBarDelegate.swift */,
+				4F362ADE1DA89CEF0094B6FF /* LeftBarOptionCell.swift */,
+				4F362ADF1DA89CEF0094B6FF /* LeftBarOptionCell.xib */,
+				4F362AE01DA89CEF0094B6FF /* LeftBarViewController.swift */,
+				4F362AE11DA89CEF0094B6FF /* LeftBarViewController.xib */,
+				4F362AF01DA8A0400094B6FF /* leftBarOptions.plist */,
+			);
+			path = LeftBar;
+			sourceTree = "<group>";
+		};
+		4F362AE71DA89D390094B6FF /* CentralView */ = {
+			isa = PBXGroup;
+			children = (
+				4F362AE81DA89D390094B6FF /* CenterControllerDelegate.swift */,
+				4F362AE91DA89D390094B6FF /* CenterViewNavigationController.swift */,
+			);
+			path = CentralView;
+			sourceTree = "<group>";
+		};
 		4F3B92BE1D765FCE00255932 /* Rectangle */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +192,16 @@
 				4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */,
 			);
 			name = Rectangle;
+			sourceTree = "<group>";
+		};
+		4F58DB931DA3408A006B4A1D /* navigationFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4F362AE71DA89D390094B6FF /* CentralView */,
+				4F362ADC1DA89CEF0094B6FF /* LeftBar */,
+				4F58DB941DA3408A006B4A1D /* LateralBarController.swift */,
+			);
+			path = navigationFiles;
 			sourceTree = "<group>";
 		};
 		4FA1E4611D99ED890007567B /* CropView */ = {
@@ -187,6 +238,7 @@
 		4FB5C8B51D63CF6700E9A783 /* clothingClassifier */ = {
 			isa = PBXGroup;
 			children = (
+				4F58DB931DA3408A006B4A1D /* navigationFiles */,
 				4F1288471D9F39F90095291C /* supportingFiles */,
 				4F1288441D9F38290095291C /* database */,
 				4FA1E4611D99ED890007567B /* CropView */,
@@ -377,12 +429,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F362AE41DA89CEF0094B6FF /* LeftBarOptionCell.xib in Resources */,
+				4F362AE61DA89CEF0094B6FF /* LeftBarViewController.xib in Resources */,
 				4F618D501DA1EC56003A220C /* Categories.plist in Resources */,
 				4FB5C8C11D63CF6700E9A783 /* LaunchScreen.storyboard in Resources */,
 				4FB5C8E71D63D13E00E9A783 /* Localizable.strings in Resources */,
 				4FB5C8BE1D63CF6700E9A783 /* Assets.xcassets in Resources */,
 				4F1288461D9F38290095291C /* db.sqlite in Resources */,
 				4FA1E4631D99EDB70007567B /* CropView.xib in Resources */,
+				4F362AEE1DA8A0400094B6FF /* leftBarOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,18 +586,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */,
+				4F362AE51DA89CEF0094B6FF /* LeftBarViewController.swift in Sources */,
 				4F8F7D801D863DD900173064 /* LateralRectangle.swift in Sources */,
 				4FB5C8B91D63CF6700E9A783 /* ViewController.swift in Sources */,
 				4F3B92BD1D76583300255932 /* RightRectangle.swift in Sources */,
 				4F3B92C21D766CB100255932 /* CentralRectangle.swift in Sources */,
 				4FB5C8B71D63CF6700E9A783 /* AppDelegate.swift in Sources */,
+				4F362AE21DA89CEF0094B6FF /* LeftBarDelegate.swift in Sources */,
 				4F618D4D1DA1A7EB003A220C /* DBHandler.swift in Sources */,
+				4F362AE31DA89CEF0094B6FF /* LeftBarOptionCell.swift in Sources */,
+				4F58DB951DA3408A006B4A1D /* LateralBarController.swift in Sources */,
 				4FB5C8F21D654C1800E9A783 /* AdaptableRectangle.swift in Sources */,
 				4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */,
 				4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */,
 				4F3B92BB1D76401E00255932 /* LeftRectangle.swift in Sources */,
+				4F362AEA1DA89D390094B6FF /* CenterControllerDelegate.swift in Sources */,
 				4F618D551DA1FC5A003A220C /* PlistFileManager.swift in Sources */,
 				4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */,
+				4F362AEB1DA89D390094B6FF /* CenterViewNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +639,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4F362AF01DA8A0400094B6FF /* leftBarOptions.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F362AEF1DA8A0400094B6FF /* Base */,
+				4F362AF11DA8A0420094B6FF /* es */,
+			);
+			name = leftBarOptions.plist;
+			sourceTree = "<group>";
+		};
 		4F618D521DA1EC56003A220C /* Categories.plist */ = {
 			isa = PBXVariantGroup;
 			children = (

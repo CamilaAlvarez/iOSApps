@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="NO">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <development version="7000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftBarViewController" customModule="clothingClassifier" customModuleProvider="target">
+            <connections>
+                <outlet property="optionsTableView" destination="HmD-yi-xnD" id="8p6-ee-Iyq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HmD-yi-xnD">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Thq-9t-aUN"/>
+                        <outlet property="delegate" destination="-1" id="rZ2-po-krJ"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="HmD-yi-xnD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="63n-Zm-rHu"/>
+                <constraint firstItem="HmD-yi-xnD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Acp-Sl-BG3"/>
+                <constraint firstAttribute="bottom" secondItem="HmD-yi-xnD" secondAttribute="bottom" id="MLQ-g9-eu0"/>
+                <constraint firstAttribute="trailing" secondItem="HmD-yi-xnD" secondAttribute="trailing" priority="750" id="OJX-Yf-tnr"/>
+            </constraints>
+            <point key="canvasLocation" x="35.5" y="66.5"/>
+        </view>
+    </objects>
+</document>

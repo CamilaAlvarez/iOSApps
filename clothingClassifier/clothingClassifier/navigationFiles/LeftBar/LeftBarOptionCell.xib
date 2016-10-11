@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="NO">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <development version="7000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gE2-pY-w8U" customClass="LeftBarOptionCell" customModule="clothingClassifier" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gE2-pY-w8U" id="IO5-XY-TPx">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lge-Qu-Qaa">
+                        <rect key="frame" x="8" y="8" width="27" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="lge-Qu-Qaa" secondAttribute="height" multiplier="1:1" id="5TH-2X-aif"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFb-0K-Lfw">
+                        <rect key="frame" x="43" y="0.0" width="332" height="43"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="TFb-0K-Lfw" secondAttribute="bottom" id="8xL-i9-Uoo"/>
+                    <constraint firstItem="TFb-0K-Lfw" firstAttribute="top" secondItem="IO5-XY-TPx" secondAttribute="top" id="DWt-qK-yG0"/>
+                    <constraint firstAttribute="bottom" secondItem="lge-Qu-Qaa" secondAttribute="bottom" constant="8" id="Sdl-3B-tFi"/>
+                    <constraint firstItem="lge-Qu-Qaa" firstAttribute="leading" secondItem="IO5-XY-TPx" secondAttribute="leading" constant="8" id="awm-70-hhF"/>
+                    <constraint firstAttribute="trailing" secondItem="TFb-0K-Lfw" secondAttribute="trailing" id="geM-6r-Bgq"/>
+                    <constraint firstItem="TFb-0K-Lfw" firstAttribute="leading" secondItem="lge-Qu-Qaa" secondAttribute="trailing" constant="8" id="m9G-RY-Tzy"/>
+                    <constraint firstItem="lge-Qu-Qaa" firstAttribute="top" secondItem="IO5-XY-TPx" secondAttribute="top" constant="8" id="ygB-BD-fEl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="iconView" destination="lge-Qu-Qaa" id="b2o-SZ-4fi"/>
+                <outlet property="optionContentView" destination="TFb-0K-Lfw" id="BET-H7-s25"/>
+            </connections>
+            <point key="canvasLocation" x="36.5" y="57"/>
+        </tableViewCell>
+    </objects>
+</document>
