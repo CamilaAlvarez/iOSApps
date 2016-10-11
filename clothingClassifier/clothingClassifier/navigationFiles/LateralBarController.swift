@@ -58,11 +58,13 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
             self.view.insertSubview(viewController.view, at: 0)
             self.addChildViewController(viewController)
             viewController.didMove(toParentViewController: self)
+            centerViewController.view.isUserInteractionEnabled = false
         case .opened:
             leftViewController?.view.removeFromSuperview()
             leftViewController?.willMove(toParentViewController: nil)
             leftViewController?.removeFromParentViewController()
             leftViewController = nil
+            centerViewController.view.isUserInteractionEnabled = true
         }
     }
     
