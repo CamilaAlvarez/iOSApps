@@ -37,6 +37,9 @@ class LeftBarViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
+            guard delegate!.optionListHeaderView() != nil else{
+                return 0
+            }
             return 1
         }
         return delegate!.numberOfOptions(forGroup: section, inView: tableView)
