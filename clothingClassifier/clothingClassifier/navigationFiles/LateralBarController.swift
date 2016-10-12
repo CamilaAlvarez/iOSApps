@@ -8,11 +8,20 @@
 
 import UIKit
 
+extension UIViewController{
+    
+    func getScreenSize()->CGSize{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let window:UIWindow = appDelegate.window!
+        return window.frame.size
+    }
+}
+
 class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarDelegate {
     private var centerViewNavigationController:CenterViewNavigationController
     private var centerViewController:UIViewController
     private var leftViewController:LeftBarViewController?
-    private var optionList:[String : String] = PlistFileManager.loadPlistFile(named: "leftBarOptions") as! [String : String]
+    private var optionList:[String : [String:String]] = PlistFileManager.loadPlistFile(named: "leftBarOptions") as! [String : [String:String]]
     private var leftBarwidth:CGFloat? = nil
     private let margin:CGFloat = 8
 
@@ -69,19 +78,40 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
         }
     }
     
+    
     func animateLateralBar(forState currentState:barState, completion:((Bool)->Void)?){
         let centerView:UIView = centerViewNavigationController.view
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             switch currentState{
             case .closed:
                 centerView.frame.origin.x += self.getLeftBarWidth()
+                self.centerViewNavigationController.view.alpha = 0.6
             case .opened:
                 centerView.frame.origin.x = 0
+                self.centerViewNavigationController.view.alpha = 1
             }
         }, completion: completion)
     }
     
-    func didSelectOption(from tableView:UITableView, atIndexPath indexPath:IndexPath){}
+    func didSelectOption(from tableView:UITableView, atIndexPath indexPath:IndexPath){
+        var nextViewController:UIViewController? = nil
+        switch indexPath.row{
+        case 0:
+            nextViewController = CropViewController(nibName: "CropView", bundle: nil)
+        case 1:
+            nextViewController = LabeledImagesController(nibName: "LabeledImagesController", bundle: nil)
+        case 2:
+            nextViewController = SynchronizeViewController(nibName: "SynchronizeViewController", bundle: nil)
+        default:
+            break
+        }
+        
+        self.centerViewController = nextViewController!
+        self.centerViewNavigationController.setViewControllers([self.centerViewController], animated: false)
+        self.centerViewNavigationController.finishNavigationBar()
+        self.centerViewNavigationController.openLeftBar(self)
+        
+    }
     
     func numberOfOptions(forGroup groupNumber:Int, inView tableView:UITableView) -> Int{
         return optionList.count
@@ -106,11 +136,11 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
         
         switch indexPath.row {
         case 0:
-            labelView.text = optionList["classify"]
+            labelView.text = optionList["classify"]!["label"]
         case 1:
-            labelView.text = optionList["review"]
+            labelView.text = optionList["review"]!["label"]
         case 2:
-            labelView.text = optionList["sync"]
+            labelView.text = optionList["sync"]!["label"]
         default:
             break
         }
@@ -120,10 +150,8 @@ class LateralBarController: UIViewController, CenterControllerDelegate, LeftBarD
     
     func getLeftBarWidth() -> CGFloat{
         guard let width = leftBarwidth else{
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let window:UIWindow = appDelegate.window!
-            let windowFrame = window.frame.size
-            leftBarwidth = 3*windowFrame.width/4
+            let windowFrameSize = getScreenSize()
+            leftBarwidth = 5*windowFrameSize.width/6
             return leftBarwidth!
         }
         return width

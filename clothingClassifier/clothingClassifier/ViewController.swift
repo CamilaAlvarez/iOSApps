@@ -9,14 +9,14 @@
 import UIKit
 import FMDB
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     private struct category{
         let categoryCode:String
         let categoryDescription:String
     }
     
     @IBOutlet var categoryPicker:UIPickerView?
-    private let categories:[category] = ViewController.loadCategoriesIntoArray()
+    private let categories:[category] = CropViewController.loadCategoriesIntoArray()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

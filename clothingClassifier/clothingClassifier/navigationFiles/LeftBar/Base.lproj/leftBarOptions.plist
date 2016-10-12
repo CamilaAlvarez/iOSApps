@@ -3,10 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>classify</key>
-	<string>Classify</string>
+	<dict>
+		<key>label</key>
+		<string>Classify</string>
+	</dict>
 	<key>review</key>
-	<string>Labeled images</string>
+	<dict>
+		<key>label </key>
+		<string>Labeled images</string>
+	</dict>
 	<key>sync</key>
-	<string>Synchronize</string>
+	<dict>
+		<key>label </key>
+		<string>Synchronize</string>
+	</dict>
 </dict>
 </plist>
