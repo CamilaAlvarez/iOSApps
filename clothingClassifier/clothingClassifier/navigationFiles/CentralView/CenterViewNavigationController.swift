@@ -41,7 +41,7 @@ class CenterViewNavigationController: UINavigationController {
         centerViewLayer.shadowOpacity = 0.8
     }
     
-    private func finishNavigationBar(){
+    func finishNavigationBar(){
         for child in self.viewControllers{
             prepare(navigationItem: child.navigationItem)
         }
@@ -65,7 +65,7 @@ class CenterViewNavigationController: UINavigationController {
         
     }
     
-    func openLeftBar(_ sender:UIBarButtonItem){
+    func openLeftBar(_ sender:AnyObject){
         switch currentState {
         case .opened:
             centralDelegate?.animateLateralBar(forState: currentState, completion:{_ in

@@ -32,7 +32,9 @@ class LeftBarViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didSelectOption(from: tableView, atIndexPath: indexPath)
+        if indexPath.section == 1{
+            delegate!.didSelectOption(from: tableView, atIndexPath: indexPath)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

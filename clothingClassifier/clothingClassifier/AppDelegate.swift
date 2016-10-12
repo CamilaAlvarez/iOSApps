@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
-        let labelViewController = ViewController(nibName: "CropView", bundle: nil)
+        let labelViewController = CropViewController(nibName: "CropView", bundle: nil)
         let rootViewController = LateralBarController(withInitialCenterViewController:labelViewController)
         self.window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
