@@ -7,29 +7,33 @@
 //
 
 import Foundation
+import FMDB
+
+
 
 class DBHandler{
     private var dbName:String = String()
     private var dbExtension:String = String()
     private var dbPath:String = String()
-    private static let instance : DBHandler = DBHandler()
+    private static let sharedInstance : DBHandler = DBHandler()
     private var loadedDB:Bool = false
+    private var databaseQueue:FMDatabaseQueue!
     
     class func getInstance(forDatabaseWithName name:String, andExtension dbExt:String)-> DBHandler{
-        instance.dbName = name
-        instance.dbExtension = dbExt
-        return instance
+        sharedInstance.dbName = name
+        sharedInstance.dbExtension = dbExt
+        return sharedInstance
     }
 
     class func getInstance()->DBHandler{
-        return instance
+        return sharedInstance
     }
     
     private init(){}
     
-    func loadDB()->Bool{
+    func loadDB(withName name: String, andExtension ext:String)->Bool{
         let defaultFileManager = FileManager.default
-        let dbPathUrl = try! defaultFileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("\(dbName).\(dbExtension)")
+        let dbPathUrl = try! defaultFileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("\(name).\(ext)")
         dbPath = dbPathUrl.path
         if !defaultFileManager.fileExists(atPath: dbPath){
             let dbPathBackup = Bundle.main.url(forResource: dbName, withExtension: dbExtension)
@@ -43,7 +47,79 @@ class DBHandler{
                 return false
             }
         }
+        guard let db = FMDatabaseQueue(path: dbPath) else{
+            return false
+        }
+        databaseQueue = db
         return true
     }
     
+    func loadDB()->Bool{
+        return loadDB(withName: dbName, andExtension: dbExtension)
+    }
+    
+    func removeDB(WithName name: String, andExtension ext:String)->Bool{
+        let defaultFileManager = FileManager.default
+        let dbPathUrl = try! defaultFileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("\(name).\(ext)")
+        dbPath = dbPathUrl.path
+        if !defaultFileManager.fileExists(atPath: dbPath){
+            return true
+        }
+        
+        do{
+            try defaultFileManager.removeItem(at: dbPathUrl)
+        }
+        catch{
+            return false
+        }
+        
+        databaseQueue = nil
+        return true
+    }
+    
+    func removeDB()->Bool{
+        return removeDB(WithName: dbName, andExtension: dbExtension)
+    }
+    
+    func execute(Query query:String, completion:@escaping ([[String:Any]]!)->Void ){
+        databaseQueue.inDatabase{ db in
+            do{
+                var result = [[String:Any]]()
+                let queryResult = try db?.executeQuery(query, values: nil)
+                guard let tableColumns =  queryResult!.columnNameToIndexMap as NSDictionary as? [String:Int] else {
+                    return
+                }
+                
+                while queryResult!.next(){
+                    var rowDictionary:[String: Any] = [String: Any]()
+                    for (column, _) in tableColumns{
+                        rowDictionary[column] = queryResult?.object(forColumnName: column)
+                    }
+                    result.append(rowDictionary)
+                }
+                completion(result)
+                
+            }
+            catch{
+                completion(nil)
+            }
+        }
+    }
+    
+    func executeUpdate(Query query:String, completion: @escaping (Bool)->Void){
+        databaseQueue.inDatabase{ db in
+            let finished = db?.executeUpdate(query, withArgumentsIn: nil)
+            
+            if let success = finished{
+                completion(success)
+                return
+            }
+            completion(false)
+            
+        }
+    }
+    
+    //func executeTransaction()
+    //Funcion de transaccion-> execute transaction
+    //Tal vez objeto query que permita generar cadena de ejecucion de consultas -> Django tiene QuerySets
 }

@@ -11,6 +11,16 @@ import UIKit
 enum barState{
     case opened
     case closed
+    /* mutating modifica el estado interno del 
+    objeto */
+    mutating func toggle(){
+        switch self {
+        case .opened:
+            self = .closed
+        case .closed:
+            self = .opened
+        }
+    }
 }
 
 protocol CenterControllerDelegate {
