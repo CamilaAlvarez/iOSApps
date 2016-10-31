@@ -80,12 +80,7 @@ class CenterViewNavigationController: UINavigationController {
     }
     
     private func changeState(){
-        switch currentState {
-        case .opened:
-            currentState = .closed
-        case .closed:
-            currentState = .opened
-        }
+        currentState.toggle()
     }
 
     /*

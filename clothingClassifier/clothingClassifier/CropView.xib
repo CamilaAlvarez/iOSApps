@@ -53,6 +53,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-o5-D5f">
                             <state key="normal" title="Button"/>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-2s-Ik6">
+                            <state key="normal" title="Button"/>
+                        </button>
                     </subviews>
                 </stackView>
             </subviews>
