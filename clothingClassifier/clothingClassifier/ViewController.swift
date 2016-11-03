@@ -15,7 +15,8 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let categoryDescription:String
     }
     
-    @IBOutlet var categoryPicker:UIPickerView?
+    @IBOutlet var photoView:AdaptableRectangle!
+    @IBOutlet var categoryPicker:UIPickerView!
     private let categories:[category] = CropViewController.loadCategoriesIntoArray()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -37,27 +38,10 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            fatalError("Cannot obtain AppDelegate")
-        }
-        guard let database = FMDatabase(path: appDelegate.dbPath)  else {
-            fatalError("Cannot create database")
-        }
-        guard database.open() else{
-            fatalError("Couldn't open database")
-        }
-        
-        do{
-            let res = try database.executeQuery("Select * from Categories", values: nil)
-            while res.next(){
-                let englishColumn = res.string(forColumn: "cat_name_en")
-                print(englishColumn)
-            }
-        }
-        catch{
-            print("error")
-        }
+        self.view.layoutIfNeeded()
+        let imageData = try? Data(contentsOf: URL(string: "https://s-media-cache-ak0.pinimg.com/564x/5c/a5/28/5ca5280505933a20ba48869ca9722ad3.jpg")!)
+        let image = UIImage(data: imageData!)
+        photoView.image = image
         
     }
     
@@ -78,6 +62,17 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func addLabel(sender:UIButton)->Void{
+        let rect = photoView.getCroppedRect()
+        print("view: \(photoView.frame.size)")
+        print("image: \(photoView.image?.size)")
+        
+        print("view point: \(rect.origin)")
+        print("image point : \(photoView.convertPoint(fromView: rect.origin))")
+        
+        let selectedRow = categoryPicker.selectedRow(inComponent: 0)
+        print("class: \(categories[selectedRow].categoryDescription)")
+    }
     
 
 }

@@ -20,8 +20,12 @@ class AdaptableRectangle: UIImageView {
         let originYCropper = self.frame.midY - initialHeightWidth/2
         let cropperRect = CGRect(x: originXCropper, y: originYCropper, width: initialHeightWidth, height: initialHeightWidth)
         adapter = RectangleAdapter(forView: self, withCropperRect: cropperRect)
+        
     }
     
+    func getCroppedRect()->CGRect{
+        return adapter.getCentralRectangle()
+    }
     
     convenience init(withImageView imageView: UIImageView){
         self.init(frame: imageView.frame)
