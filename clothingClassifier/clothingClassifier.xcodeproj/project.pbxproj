@@ -34,6 +34,7 @@
 		4F618D551DA1FC5A003A220C /* PlistFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F618D541DA1FC5A003A220C /* PlistFileManager.swift */; };
 		4F7105CB1DCAC03D0047C6AA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4F7105C81DCAC03D0047C6AA /* LICENSE */; };
 		4F7105CC1DCAC03D0047C6AA /* UIImageView+GeometryConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7105CA1DCAC03D0047C6AA /* UIImageView+GeometryConversion.m */; };
+		4F7E7B721DCD77E200C958FF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E7B711DCD77E200C958FF /* Image.swift */; };
 		4F8F7D801D863DD900173064 /* LateralRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */; };
 		4F9035561DB7081A004792EF /* QuerySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9035551DB7081A004792EF /* QuerySet.swift */; };
 		4FA1E4631D99EDB70007567B /* CropView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA1E4621D99EDB70007567B /* CropView.xib */; };
@@ -103,6 +104,7 @@
 		4F7105C91DCAC03D0047C6AA /* UIImageView+GeometryConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GeometryConversion.h"; sourceTree = "<group>"; };
 		4F7105CA1DCAC03D0047C6AA /* UIImageView+GeometryConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GeometryConversion.m"; sourceTree = "<group>"; };
 		4F7105D01DCAC0DA0047C6AA /* clothingClassifier-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "clothingClassifier-Bridging-Header.h"; sourceTree = "<group>"; };
+		4F7E7B711DCD77E200C958FF /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LateralRectangle.swift; sourceTree = "<group>"; };
 		4F9035551DB7081A004792EF /* QuerySet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuerySet.swift; sourceTree = "<group>"; };
 		4FA1E4621D99EDB70007567B /* CropView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CropView.xib; sourceTree = "<group>"; };
@@ -335,9 +337,10 @@
 		4FB5C8F01D654BE700E9A783 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */,
 				4F3B92BE1D765FCE00255932 /* Rectangle */,
+				4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */,
 				4F3B92BF1D76617500255932 /* RectangleAdapter.swift */,
+				4F7E7B711DCD77E200C958FF /* Image.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				4F618D551DA1FC5A003A220C /* PlistFileManager.swift in Sources */,
 				4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */,
 				4F362AEB1DA89D390094B6FF /* CenterViewNavigationController.swift in Sources */,
+				4F7E7B721DCD77E200C958FF /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
