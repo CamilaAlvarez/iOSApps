@@ -28,6 +28,7 @@
 		4F4473EE1DADA959003C39F8 /* SynchronizeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4473EC1DADA959003C39F8 /* SynchronizeViewController.xib */; };
 		4F4473F11DADA96F003C39F8 /* LabeledImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4473EF1DADA96F003C39F8 /* LabeledImagesController.swift */; };
 		4F4473F21DADA96F003C39F8 /* LabeledImagesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4473F01DADA96F003C39F8 /* LabeledImagesController.xib */; };
+		4F54554B1DD169E50081B277 /* LabelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F54554A1DD169E50081B277 /* LabelContainer.swift */; };
 		4F58DB951DA3408A006B4A1D /* LateralBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F58DB941DA3408A006B4A1D /* LateralBarController.swift */; };
 		4F618D4D1DA1A7EB003A220C /* DBHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F618D4C1DA1A7EA003A220C /* DBHandler.swift */; };
 		4F618D501DA1EC56003A220C /* Categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F618D521DA1EC56003A220C /* Categories.plist */; };
@@ -95,6 +96,7 @@
 		4F4473EC1DADA959003C39F8 /* SynchronizeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SynchronizeViewController.xib; sourceTree = "<group>"; };
 		4F4473EF1DADA96F003C39F8 /* LabeledImagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabeledImagesController.swift; sourceTree = "<group>"; };
 		4F4473F01DADA96F003C39F8 /* LabeledImagesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabeledImagesController.xib; sourceTree = "<group>"; };
+		4F54554A1DD169E50081B277 /* LabelContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelContainer.swift; sourceTree = "<group>"; };
 		4F58DB941DA3408A006B4A1D /* LateralBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LateralBarController.swift; sourceTree = "<group>"; };
 		4F618D4C1DA1A7EA003A220C /* DBHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHandler.swift; sourceTree = "<group>"; };
 		4F618D511DA1EC56003A220C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/Categories.plist; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				4FB5C8B81D63CF6700E9A783 /* ViewController.swift */,
 				4FA1E4621D99EDB70007567B /* CropView.xib */,
+				4F54554A1DD169E50081B277 /* LabelContainer.swift */,
 			);
 			name = CropView;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				4F618D4D1DA1A7EB003A220C /* DBHandler.swift in Sources */,
 				4F362AE31DA89CEF0094B6FF /* LeftBarOptionCell.swift in Sources */,
 				4F58DB951DA3408A006B4A1D /* LateralBarController.swift in Sources */,
+				4F54554B1DD169E50081B277 /* LabelContainer.swift in Sources */,
 				4FB5C8F21D654C1800E9A783 /* AdaptableRectangle.swift in Sources */,
 				4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */,
 				4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */,

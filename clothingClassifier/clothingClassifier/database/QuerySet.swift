@@ -62,7 +62,7 @@ class QuerySet{
         if let insertInteger = value as? Int {
             return "\(insertInteger)"
         }
-        else if let insertReal = value as? Double{
+        else if let insertReal = value as? CGFloat{
             return "\(insertReal)"
             
         }

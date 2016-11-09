@@ -17,7 +17,7 @@ class DBHandler{
     private var dbPath:String = String()
     private static let sharedInstance : DBHandler = DBHandler()
     private var loadedDB:Bool = false
-    private var databaseQueue:FMDatabaseQueue!
+    private var database:FMDatabase! = nil
     
     class func getInstance(forDatabaseWithName name:String, andExtension dbExt:String)-> DBHandler{
         sharedInstance.dbName = name
@@ -47,10 +47,10 @@ class DBHandler{
                 return false
             }
         }
-        guard let db = FMDatabaseQueue(path: dbPath) else{
+        guard let db = FMDatabase(path: dbPath) else{
             return false
         }
-        databaseQueue = db
+        database = db
         return true
     }
     
@@ -73,7 +73,7 @@ class DBHandler{
             return false
         }
         
-        databaseQueue = nil
+        database = nil
         return true
     }
     
@@ -81,41 +81,65 @@ class DBHandler{
         return removeDB(WithName: dbName, andExtension: dbExtension)
     }
     
+    private func openDatabase()->Bool{
+        guard database != nil else{
+            return false
+        }
+        return database.open()
+    }
+    
+    private func closeDatabase()->Bool{
+        guard database != nil else {
+            return false
+        }
+        return database.close()
+    }
+    
+    
+    //Cambiar esto porque genera problemas, por el open database y ble
     func execute(Query query:String, completion:@escaping ([[String:Any]]!)->Void ){
-        databaseQueue.inDatabase{ db in
-            do{
-                var result = [[String:Any]]()
-                let queryResult = try db?.executeQuery(query, values: nil)
-                guard let tableColumns =  queryResult!.columnNameToIndexMap as NSDictionary as? [String:Int] else {
-                    return
-                }
-                
-                while queryResult!.next(){
-                    var rowDictionary:[String: Any] = [String: Any]()
-                    for (column, _) in tableColumns{
-                        rowDictionary[column] = queryResult?.object(forColumnName: column)
+        DispatchQueue.global().async {
+            if self.openDatabase() {
+                do{
+                    var result = [[String:Any]]()
+                    let queryResult = try self.database.executeQuery(query, values: nil)
+                    guard let tableColumns =  queryResult.columnNameToIndexMap as NSDictionary as? [String:Int] else {
+                        return
                     }
-                    result.append(rowDictionary)
+                    
+                    while queryResult.next(){
+                        var rowDictionary:[String: Any] = [String: Any]()
+                        for (column, _) in tableColumns{
+                            rowDictionary[column] = queryResult.object(forColumnName: column)
+                        }
+                        result.append(rowDictionary)
+                    }
+                    if self.closeDatabase() {
+                        completion(result)
+                    }
+                    
+                    
                 }
-                completion(result)
-                
+                catch{
+                    if self.closeDatabase(){
+                        completion(nil)
+                    }
+                }
             }
-            catch{
-                completion(nil)
-            }
+
         }
     }
     
     func executeUpdate(Query query:String, completion: @escaping (Bool)->Void){
-        databaseQueue.inDatabase{ db in
-            let finished = db?.executeUpdate(query, withArgumentsIn: nil)
-            
-            if let success = finished{
-                completion(success)
-                return
+        DispatchQueue.global().async {
+            if self.openDatabase() {
+                let success = self.database.executeUpdate(query, withArgumentsIn: nil)
+                if self.closeDatabase() {
+                    completion(success)
+                    return
+                }
+                completion(false)
             }
-            completion(false)
-            
         }
     }
     

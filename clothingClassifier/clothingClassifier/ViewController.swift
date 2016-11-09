@@ -39,10 +39,7 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.layoutIfNeeded()
         currentImage = Image(imageId: 1, imageUrl: "https://s-media-cache-ak0.pinimg.com/564x/5c/a5/28/5ca5280505933a20ba48869ca9722ad3.jpg")
-        let imageData = try? Data(contentsOf: URL(string: "https://s-media-cache-ak0.pinimg.com/564x/5c/a5/28/5ca5280505933a20ba48869ca9722ad3.jpg")!)
-        let image = UIImage(data: imageData!)
         photoView.image = currentImage.getImage()
         
     }
@@ -65,7 +62,8 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
 
     @IBAction func addLabel(sender:UIButton)->Void{
-        let boundingBox = photoView.convertRect(fromView: photoView.getCroppedRect())
+        let imageRect = photoView.getCroppedRect()
+        let boundingBox = photoView.convertRect(fromView: imageRect)
         let selectedRow = categoryPicker.selectedRow(inComponent: 0)
         do{
             let categoryIdQuery = try Categories()?.get(columns: ["cat_id"])
@@ -75,21 +73,21 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 guard results.count == 1 else{
                     fatalError("Invalid database result")
                 }
-                let catId = results[0]["cat_id"] as! String
+                let catId = results[0]["cat_id"] as! Int
                 let insertValues:[String:Any] = ["lbl_image_id":self.currentImage.getImageId(),
-                                                 "lbl_x": boundingBox.minX,
-                                                 "lbl_y": boundingBox.minY,
-                                                 "lbl_height": boundingBox.height,
-                                                 "lbl_width": boundingBox.width,
+                                                 "lbl_x": boundingBox.origin.x,
+                                                 "lbl_y": boundingBox.origin.y,
+                                                 "lbl_height": boundingBox.size.height,
+                                                 "lbl_width": boundingBox.size.width,
                                                  "lbl_category": catId]
                 do{
                     let insertLabelQuery = try Labels()?.insert(values: insertValues)
                     insertLabelQuery?.execUpdate(){success in
                         if success{
-                        //Crear e insertar rectangulo
-                            //RECORDAR QUE LA ACTUALIZACION DE LA INTERFAZ SE DEBE HACER EN EL MAIN THREAD
-                            //=>ACTUALIZACION ES AGREGAR LAS SUBVISTAS QUE SERAN LOS 4 COSTADOS Y EL RECTANGULO CON 
-                            //EL LABEL
+                            DispatchQueue.main.async {
+                                let labelView = LabelContainer(frame: imageRect, withColor: UIColor.red, withEdgeWidth: 2, withText: self.categories[selectedRow].categoryDescription, andTextColor: UIColor.black)
+                                self.photoView.insertSubview(labelView, at: 0)
+                            }
                         }
                     }
                 }
