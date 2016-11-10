@@ -234,7 +234,6 @@ class DatabaseTests: XCTestCase {
         XCTAssertNotNil(joinQuery!.getQuery())
         joinQuery!.exec(){results in
             XCTAssertEqual(results.count, 0)
-            print(results)
         }
     }
     
@@ -251,7 +250,6 @@ class DatabaseTests: XCTestCase {
         XCTAssertNotNil(selectWhere)
         XCTAssertNotNil(selectWhere!.getQuery())
         selectWhere!.exec(){results in
-            print(results)
             XCTAssertEqual(results.count, 0)
         }
     }
