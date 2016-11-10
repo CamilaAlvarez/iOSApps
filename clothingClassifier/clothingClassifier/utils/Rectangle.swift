@@ -47,6 +47,10 @@ class Rectangle {
         return rectangleView.bounds
     }
     
+    func getFrame()->CGRect{
+        return rectangleView.frame
+    }
+    
     func changeWholeRectangle(origin:CGPoint?, width:CGFloat, height:CGFloat){
         self.origin = origin
         self.width = width

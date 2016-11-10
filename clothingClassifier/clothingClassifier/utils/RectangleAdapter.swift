@@ -85,4 +85,8 @@ class RectangleAdapter: NSObject {
         mainRectangle.translateRectangle(from: startingPoint, to: finishPoint)
         updateSecondaryRectangles(finishPoint)
     }
+    
+    func getCentralRectangle()->CGRect{
+        return mainRectangle.getFrame()
+    }
 }

@@ -28,10 +28,14 @@
 		4F4473EE1DADA959003C39F8 /* SynchronizeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4473EC1DADA959003C39F8 /* SynchronizeViewController.xib */; };
 		4F4473F11DADA96F003C39F8 /* LabeledImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4473EF1DADA96F003C39F8 /* LabeledImagesController.swift */; };
 		4F4473F21DADA96F003C39F8 /* LabeledImagesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4473F01DADA96F003C39F8 /* LabeledImagesController.xib */; };
+		4F54554B1DD169E50081B277 /* LabelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F54554A1DD169E50081B277 /* LabelContainer.swift */; };
 		4F58DB951DA3408A006B4A1D /* LateralBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F58DB941DA3408A006B4A1D /* LateralBarController.swift */; };
 		4F618D4D1DA1A7EB003A220C /* DBHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F618D4C1DA1A7EA003A220C /* DBHandler.swift */; };
 		4F618D501DA1EC56003A220C /* Categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F618D521DA1EC56003A220C /* Categories.plist */; };
 		4F618D551DA1FC5A003A220C /* PlistFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F618D541DA1FC5A003A220C /* PlistFileManager.swift */; };
+		4F7105CB1DCAC03D0047C6AA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4F7105C81DCAC03D0047C6AA /* LICENSE */; };
+		4F7105CC1DCAC03D0047C6AA /* UIImageView+GeometryConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7105CA1DCAC03D0047C6AA /* UIImageView+GeometryConversion.m */; };
+		4F7E7B721DCD77E200C958FF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E7B711DCD77E200C958FF /* Image.swift */; };
 		4F8F7D801D863DD900173064 /* LateralRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */; };
 		4F9035561DB7081A004792EF /* QuerySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9035551DB7081A004792EF /* QuerySet.swift */; };
 		4FA1E4631D99EDB70007567B /* CropView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA1E4621D99EDB70007567B /* CropView.xib */; };
@@ -92,11 +96,17 @@
 		4F4473EC1DADA959003C39F8 /* SynchronizeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SynchronizeViewController.xib; sourceTree = "<group>"; };
 		4F4473EF1DADA96F003C39F8 /* LabeledImagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabeledImagesController.swift; sourceTree = "<group>"; };
 		4F4473F01DADA96F003C39F8 /* LabeledImagesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabeledImagesController.xib; sourceTree = "<group>"; };
+		4F54554A1DD169E50081B277 /* LabelContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelContainer.swift; sourceTree = "<group>"; };
 		4F58DB941DA3408A006B4A1D /* LateralBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LateralBarController.swift; sourceTree = "<group>"; };
 		4F618D4C1DA1A7EA003A220C /* DBHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHandler.swift; sourceTree = "<group>"; };
 		4F618D511DA1EC56003A220C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/Categories.plist; sourceTree = "<group>"; };
 		4F618D531DA1EC5D003A220C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Categories.plist; sourceTree = "<group>"; };
 		4F618D541DA1FC5A003A220C /* PlistFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistFileManager.swift; sourceTree = "<group>"; };
+		4F7105C81DCAC03D0047C6AA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4F7105C91DCAC03D0047C6AA /* UIImageView+GeometryConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GeometryConversion.h"; sourceTree = "<group>"; };
+		4F7105CA1DCAC03D0047C6AA /* UIImageView+GeometryConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GeometryConversion.m"; sourceTree = "<group>"; };
+		4F7105D01DCAC0DA0047C6AA /* clothingClassifier-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "clothingClassifier-Bridging-Header.h"; sourceTree = "<group>"; };
+		4F7E7B711DCD77E200C958FF /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		4F8F7D7F1D863DD900173064 /* LateralRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LateralRectangle.swift; sourceTree = "<group>"; };
 		4F9035551DB7081A004792EF /* QuerySet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuerySet.swift; sourceTree = "<group>"; };
 		4FA1E4621D99EDB70007567B /* CropView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CropView.xib; sourceTree = "<group>"; };
@@ -238,11 +248,22 @@
 			path = navigationFiles;
 			sourceTree = "<group>";
 		};
+		4F7105C71DCAC03D0047C6AA /* externalLibs */ = {
+			isa = PBXGroup;
+			children = (
+				4F7105C81DCAC03D0047C6AA /* LICENSE */,
+				4F7105C91DCAC03D0047C6AA /* UIImageView+GeometryConversion.h */,
+				4F7105CA1DCAC03D0047C6AA /* UIImageView+GeometryConversion.m */,
+			);
+			path = externalLibs;
+			sourceTree = "<group>";
+		};
 		4FA1E4611D99ED890007567B /* CropView */ = {
 			isa = PBXGroup;
 			children = (
 				4FB5C8B81D63CF6700E9A783 /* ViewController.swift */,
 				4FA1E4621D99EDB70007567B /* CropView.xib */,
+				4F54554A1DD169E50081B277 /* LabelContainer.swift */,
 			);
 			name = CropView;
 			sourceTree = "<group>";
@@ -272,6 +293,7 @@
 		4FB5C8B51D63CF6700E9A783 /* clothingClassifier */ = {
 			isa = PBXGroup;
 			children = (
+				4F7105C71DCAC03D0047C6AA /* externalLibs */,
 				4F4473EA1DADA92F003C39F8 /* syncView */,
 				4F4473E91DADA929003C39F8 /* reviewView */,
 				4F58DB931DA3408A006B4A1D /* navigationFiles */,
@@ -281,6 +303,7 @@
 				4FB5C8F01D654BE700E9A783 /* utils */,
 				4FB5C8E41D63D10B00E9A783 /* Internationalization */,
 				4FB5C8B61D63CF6700E9A783 /* AppDelegate.swift */,
+				4F7105D01DCAC0DA0047C6AA /* clothingClassifier-Bridging-Header.h */,
 				4FB5C8BD1D63CF6700E9A783 /* Assets.xcassets */,
 				4FB5C8BF1D63CF6700E9A783 /* LaunchScreen.storyboard */,
 			);
@@ -317,9 +340,10 @@
 		4FB5C8F01D654BE700E9A783 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */,
 				4F3B92BE1D765FCE00255932 /* Rectangle */,
+				4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */,
 				4F3B92BF1D76617500255932 /* RectangleAdapter.swift */,
+				4F7E7B711DCD77E200C958FF /* Image.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -472,6 +496,7 @@
 				4F618D501DA1EC56003A220C /* Categories.plist in Resources */,
 				4F4473EE1DADA959003C39F8 /* SynchronizeViewController.xib in Resources */,
 				4FB5C8C11D63CF6700E9A783 /* LaunchScreen.storyboard in Resources */,
+				4F7105CB1DCAC03D0047C6AA /* LICENSE in Resources */,
 				4FB5C8E71D63D13E00E9A783 /* Localizable.strings in Resources */,
 				4FB5C8BE1D63CF6700E9A783 /* Assets.xcassets in Resources */,
 				4F1288461D9F38290095291C /* db.sqlite in Resources */,
@@ -624,6 +649,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F7105CC1DCAC03D0047C6AA /* UIImageView+GeometryConversion.m in Sources */,
 				4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */,
 				4F362AE51DA89CEF0094B6FF /* LeftBarViewController.swift in Sources */,
 				4F8F7D801D863DD900173064 /* LateralRectangle.swift in Sources */,
@@ -637,6 +663,7 @@
 				4F618D4D1DA1A7EB003A220C /* DBHandler.swift in Sources */,
 				4F362AE31DA89CEF0094B6FF /* LeftBarOptionCell.swift in Sources */,
 				4F58DB951DA3408A006B4A1D /* LateralBarController.swift in Sources */,
+				4F54554B1DD169E50081B277 /* LabelContainer.swift in Sources */,
 				4FB5C8F21D654C1800E9A783 /* AdaptableRectangle.swift in Sources */,
 				4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */,
 				4F3B92C01D76617500255932 /* RectangleAdapter.swift in Sources */,
@@ -647,6 +674,7 @@
 				4F618D551DA1FC5A003A220C /* PlistFileManager.swift in Sources */,
 				4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */,
 				4F362AEB1DA89D390094B6FF /* CenterViewNavigationController.swift in Sources */,
+				4F7E7B721DCD77E200C958FF /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +851,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT}/${PROJECT}-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -836,6 +865,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camila.alvarez.clothingClassifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT}/${PROJECT}-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

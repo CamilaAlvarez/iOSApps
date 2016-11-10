@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CropViewController" customModule="clothingClassifier" customModuleProvider="target">
             <connections>
+                <outlet property="categoryPicker" destination="reh-gE-Ib7" id="Roh-yV-t9B"/>
+                <outlet property="photoView" destination="u7Q-R3-Fqo" id="b23-6p-r9Z"/>
                 <outlet property="view" destination="FeT-uN-xx4" id="F4B-UB-s8P"/>
             </connections>
         </placeholder>
@@ -16,17 +21,27 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-ns-EzZ">
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <nil key="highlightedColor"/>
-                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                </label>
-                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u7Q-R3-Fqo" customClass="AdaptableRectangle" customModule="clothingClassifier" customModuleProvider="target">
-                    <color key="backgroundColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="Cri-s9-CMH">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Rl-U0-SpR">
+                    <rect key="frame" x="0.0" y="58" width="375" height="551"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u7Q-R3-Fqo" customClass="AdaptableRectangle" customModule="clothingClassifier" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                            <color key="backgroundColor" red="0.87450980389999999" green="0.23529411759999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="u7Q-R3-Fqo" secondAttribute="bottom" id="7Sk-51-XUb"/>
+                        <constraint firstItem="u7Q-R3-Fqo" firstAttribute="top" secondItem="1Rl-U0-SpR" secondAttribute="top" id="GHA-om-Zlj"/>
+                        <constraint firstItem="u7Q-R3-Fqo" firstAttribute="leading" secondItem="1Rl-U0-SpR" secondAttribute="leading" id="Z3R-Pf-Swm"/>
+                        <constraint firstAttribute="trailing" secondItem="u7Q-R3-Fqo" secondAttribute="trailing" id="vYI-LX-Gku"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" distribution="fillEqually" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="Cri-s9-CMH">
+                    <rect key="frame" x="20" y="609" width="335" height="50"/>
                     <subviews>
                         <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="reh-gE-Ib7">
+                            <rect key="frame" x="0.0" y="0.0" width="117" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Qur-FI-qIJ">
                                     <variation key="heightClass=regular-widthClass=compact" constant="30"/>
@@ -51,28 +66,40 @@
                             </connections>
                         </pickerView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-o5-D5f">
-                            <state key="normal" title="Button"/>
+                            <rect key="frame" x="109" y="0.0" width="117" height="50"/>
+                            <state key="normal" title="Label"/>
+                            <connections>
+                                <action selector="addLabelWithSender:" destination="-1" eventType="touchUpInside" id="3Vi-lL-Hvf"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-2s-Ik6">
+                            <rect key="frame" x="218" y="0.0" width="117" height="50"/>
                             <state key="normal" title="Button"/>
                         </button>
                     </subviews>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-ns-EzZ">
+                    <rect key="frame" x="20" y="20" width="335" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.99999600648880005" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="vyA-ns-EzZ" secondAttribute="trailing" constant="20" id="09m-BG-QEa"/>
+                <constraint firstAttribute="trailing" secondItem="1Rl-U0-SpR" secondAttribute="trailing" id="3Xy-oI-79V"/>
                 <constraint firstItem="vyA-ns-EzZ" firstAttribute="leading" secondItem="FeT-uN-xx4" secondAttribute="leading" constant="20" id="4qa-CC-wwD"/>
-                <constraint firstItem="u7Q-R3-Fqo" firstAttribute="top" secondItem="vyA-ns-EzZ" secondAttribute="bottom" constant="8" id="Gw3-jP-dWf"/>
+                <constraint firstItem="Cri-s9-CMH" firstAttribute="top" secondItem="1Rl-U0-SpR" secondAttribute="bottom" id="FOj-hb-hoE"/>
                 <constraint firstItem="Cri-s9-CMH" firstAttribute="leading" secondItem="FeT-uN-xx4" secondAttribute="leading" constant="20" id="OBd-HO-Off"/>
                 <constraint firstAttribute="bottom" secondItem="Cri-s9-CMH" secondAttribute="bottom" constant="8" id="ROC-sF-wUc"/>
                 <constraint firstAttribute="trailing" secondItem="Cri-s9-CMH" secondAttribute="trailing" constant="20" id="WP8-to-hi6"/>
-                <constraint firstItem="Cri-s9-CMH" firstAttribute="top" secondItem="u7Q-R3-Fqo" secondAttribute="bottom" constant="8" id="gG7-dW-dcY"/>
-                <constraint firstItem="vyA-ns-EzZ" firstAttribute="top" secondItem="FeT-uN-xx4" secondAttribute="top" constant="28" id="kOh-xg-exu"/>
-                <constraint firstAttribute="trailing" secondItem="u7Q-R3-Fqo" secondAttribute="trailing" id="oK1-mw-KDY"/>
-                <constraint firstItem="u7Q-R3-Fqo" firstAttribute="leading" secondItem="FeT-uN-xx4" secondAttribute="leading" id="t84-Vb-qk6"/>
+                <constraint firstItem="1Rl-U0-SpR" firstAttribute="leading" secondItem="FeT-uN-xx4" secondAttribute="leading" id="ZRB-Vd-I95"/>
+                <constraint firstItem="vyA-ns-EzZ" firstAttribute="top" secondItem="FeT-uN-xx4" secondAttribute="top" constant="20" id="kOh-xg-exu"/>
+                <constraint firstItem="1Rl-U0-SpR" firstAttribute="top" secondItem="vyA-ns-EzZ" secondAttribute="bottom" constant="8" id="v4s-P4-GOu"/>
+                <constraint firstItem="1Rl-U0-SpR" firstAttribute="centerY" secondItem="FeT-uN-xx4" secondAttribute="centerY" id="y5r-R2-lnQ"/>
             </constraints>
-            <point key="canvasLocation" x="117" y="507"/>
+            <point key="canvasLocation" x="116.5" y="506.5"/>
         </view>
     </objects>
 </document>
