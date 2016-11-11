@@ -54,7 +54,7 @@ class LabelContainer: UIView {
         rightEdge = UIView(frame: CGRect(x: 0, y: 0, width: edgeWidth, height: height))
         leftEdge = UIView(frame: CGRect(x: width, y: 0, width: edgeWidth, height: height))
         topEdge = UIView(frame: CGRect(x: 0, y: 0, width: width, height: edgeWidth))
-        bottomEdge = UIView(frame: CGRect(x: 0, y: height, width: width, height: edgeWidth))
+        bottomEdge = UIView(frame: CGRect(x: 0, y: height, width: width+edgeWidth, height: edgeWidth))
         self.addSubview(rightEdge)
         self.addSubview(leftEdge)
         self.addSubview(topEdge)
