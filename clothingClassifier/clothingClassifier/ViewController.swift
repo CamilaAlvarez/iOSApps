@@ -20,7 +20,8 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private let categories:[category] = CropViewController.loadCategoriesIntoArray()
     private let categoriesDictionary:[String:String] = PlistFileManager.loadPlistFile(named: "Categories")! as![String:String]
     private var currentImage:Image!
-    private var layoutSubviews = true
+    private var showLabels = false
+    private var labels:[LabelContainer] = [LabelContainer]()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -43,32 +44,51 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         super.viewDidLoad()
         currentImage = Image(imageId: 1, imageUrl: "https://s-media-cache-ak0.pinimg.com/564x/5c/a5/28/5ca5280505933a20ba48869ca9722ad3.jpg")
         photoView.image = currentImage.getImage()
-        do{
-            let getCurrentLabels = try Labels()?.all()
-                .join(table: Categories()!, onColumn:"cat_id", andColumn:"lbl_category")
-                .whereCond(conditions: ["lbl_image_id":currentImage.getImageId()])
-            getCurrentLabels?.exec(){ results in
-                for label in results{
-                    let x = label["lbl_x"] as! CGFloat
-                    let y = label["lbl_y"] as! CGFloat
-                    let height = label["lbl_height"] as! CGFloat
-                    let width = label["lbl_width"] as! CGFloat
-                    let imageRect = CGRect(x: x, y: y, width: width, height: height)
-                    let labelCode:String = label["cat_code"] as! String
-                    let category:String = self.categoriesDictionary[labelCode]!
-                    DispatchQueue.main.async {
-                        let viewRect = self.photoView.convertRect(fromImage: imageRect)
-                        let labelView = LabelContainer(frame: viewRect, withColor: UIColor.red, withEdgeWidth: 2, withText: category, andTextColor: UIColor.black)
-                        self.photoView.insertSubview(labelView, at: 0)
+        addLabels()
+        
+    }
+    
+    @IBAction func loadLabels(sender: UIButton){
+        if showLabels{
+            addLabels()
+        }
+        else{
+            for labelView in labels{
+                labelView.removeFromSuperview()
+            }
+            labels = [LabelContainer]()
+        }
+        showLabels = !showLabels
+    }
+    
+    private func addLabels(){
+            do{
+                let getCurrentLabels = try Labels()?.all()
+                    .join(table: Categories()!, onColumn:"cat_id", andColumn:"lbl_category")
+                    .whereCond(conditions: ["lbl_image_id":currentImage.getImageId()])
+                getCurrentLabels?.exec(){ results in
+                    for label in results{
+                        let x = label["lbl_x"] as! CGFloat
+                        let y = label["lbl_y"] as! CGFloat
+                        let height = label["lbl_height"] as! CGFloat
+                        let width = label["lbl_width"] as! CGFloat
+                        let imageRect = CGRect(x: x, y: y, width: width, height: height)
+                        let labelCode:String = label["cat_code"] as! String
+                        let category:String = self.categoriesDictionary[labelCode]!
+                        DispatchQueue.main.async {
+                            let viewRect = self.photoView.convertRect(fromImage: imageRect)
+                            let labelView = LabelContainer(frame: viewRect, withColor: UIColor.red, withEdgeWidth: 2, withText: category, andTextColor: UIColor.black)
+                            self.labels.append(labelView)
+                            self.photoView.insertSubview(labelView, at: 0)
+                        }
                     }
                 }
             }
-        }
-        catch{
-            print("ERROR LOADING LABELS")
-        }
+            catch{
+                print("ERROR LOADING LABELS")
+            }
+        
     }
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -116,6 +136,7 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                                                                withText: self.categories[selectedRow].categoryDescription,
                                                                andTextColor: UIColor.black)
                                 self.photoView.insertSubview(labelView, at: 0)
+                                self.labels.append(labelView)
                             }
                         }
                     }
