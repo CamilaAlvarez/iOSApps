@@ -24,6 +24,15 @@ class LabelContainer: UIView {
         setLabelView(withText: text, textColor: textColor, andBackgroundColor: color)
     }
     
+    override func removeFromSuperview() {
+        rightEdge.removeFromSuperview()
+        leftEdge.removeFromSuperview()
+        topEdge.removeFromSuperview()
+        bottomEdge.removeFromSuperview()
+        labelView.removeFromSuperview()
+        super.removeFromSuperview()
+    }
+    
     private func setLabelView(withText text:String, textColor:UIColor, andBackgroundColor color:UIColor){
         let label = UILabel(frame: CGRect.zero)
         label.textColor = textColor

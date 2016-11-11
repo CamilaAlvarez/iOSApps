@@ -34,11 +34,11 @@
                         <constraint firstAttribute="trailing" secondItem="u7Q-R3-Fqo" secondAttribute="trailing" id="vYI-LX-Gku"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" misplaced="YES" distribution="fillEqually" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="Cri-s9-CMH">
+                <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" misplaced="YES" distribution="fillProportionally" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="Cri-s9-CMH">
                     <rect key="frame" x="20" y="609" width="560" height="50"/>
                     <subviews>
                         <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="reh-gE-Ib7">
-                            <rect key="frame" x="0.0" y="0.0" width="192" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Qur-FI-qIJ">
                                     <variation key="heightClass=regular-widthClass=compact" constant="30"/>
@@ -46,6 +46,7 @@
                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="112" id="T6I-D1-kBZ">
                                     <variation key="heightClass=regular-widthClass=compact" constant="50"/>
                                 </constraint>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="fiL-ne-CLK"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
@@ -62,18 +63,29 @@
                                 <outlet property="delegate" destination="-1" id="AfN-YN-4Kr"/>
                             </connections>
                         </pickerView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-o5-D5f">
-                            <rect key="frame" x="184" y="0.0" width="192" height="50"/>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiY-eK-4YE">
+                            <rect key="frame" x="142" y="0.0" width="145" height="50"/>
+                            <state key="normal" title="show"/>
+                            <connections>
+                                <action selector="loadLabelsWithSender:" destination="-1" eventType="touchUpInside" id="sda-3Y-1UQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-o5-D5f">
+                            <rect key="frame" x="279" y="0.0" width="145" height="50"/>
                             <state key="normal" title="Label"/>
                             <connections>
                                 <action selector="addLabelWithSender:" destination="-1" eventType="touchUpInside" id="3Vi-lL-Hvf"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-2s-Ik6">
-                            <rect key="frame" x="368" y="0.0" width="192" height="50"/>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-2s-Ik6">
+                            <rect key="frame" x="416" y="0.0" width="144" height="50"/>
                             <state key="normal" title="Button"/>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="MuT-o5-D5f" firstAttribute="width" secondItem="NiY-eK-4YE" secondAttribute="width" id="VDi-LZ-I92"/>
+                        <constraint firstItem="eBh-2s-Ik6" firstAttribute="width" secondItem="MuT-o5-D5f" secondAttribute="width" id="htD-Al-Emv"/>
+                    </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-ns-EzZ">
                     <rect key="frame" x="20" y="20" width="335" height="30"/>
