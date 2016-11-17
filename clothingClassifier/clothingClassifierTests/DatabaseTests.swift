@@ -254,6 +254,25 @@ class DatabaseTests: XCTestCase {
         }
     }
     
+    func testLimit(){
+        testInsert()
+        testInsert()
+        let table = Images()!
+        let limitQuery = try? table.all().limit(quantity: 1)
+        XCTAssertNotNil(limitQuery)
+        XCTAssertNotNil(limitQuery!.getQuery())
+        limitQuery!.exec(){results in
+            XCTAssertEqual(results.count, 1)
+        }
+        let allQuery = try? table.all()
+        XCTAssertNotNil(allQuery)
+        XCTAssertNotNil(allQuery!.getQuery())
+        allQuery!.exec(){results in
+            XCTAssertEqual(results.count, 2)
+        }
+        
+    }
+    
     func testDelete(){
         testInsert()
         testInsert()

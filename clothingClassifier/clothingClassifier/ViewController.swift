@@ -160,6 +160,9 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
+    @IBAction func loadNextImage(sender:UIButton){
+        
+    }
 
 }
 

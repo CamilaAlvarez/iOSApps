@@ -85,7 +85,7 @@ class DBHandler{
         guard database != nil else{
             return false
         }
-        return database.open()
+        return database.open() //COncurrencia
     }
     
     private func closeDatabase()->Bool{
