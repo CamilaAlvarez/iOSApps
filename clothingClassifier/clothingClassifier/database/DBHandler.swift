@@ -19,6 +19,7 @@ class DBHandler{
     private var loadedDB:Bool = false
     private var database:FMDatabase! = nil
     
+    
     class func getInstance(forDatabaseWithName name:String, andExtension dbExt:String)-> DBHandler{
         sharedInstance.dbName = name
         sharedInstance.dbExtension = dbExt

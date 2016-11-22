@@ -5,3 +5,6 @@
   Created by Camila Alvarez on 16-08-16.
   Copyright © 2016 Camila Alvarez. All rights reserved.
 */
+alert_no_image_title = "Error";
+alert_no_image_message = "No quedan imágenes sin etiquetar";
+alert_button = "OK";

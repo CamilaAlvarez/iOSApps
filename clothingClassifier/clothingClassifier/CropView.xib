@@ -83,6 +83,9 @@
                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-2s-Ik6">
                             <rect key="frame" x="265.5" y="0.0" width="69.5" height="50"/>
                             <state key="normal" title="next"/>
+                            <connections>
+                                <action selector="loadNextImageWithSender:" destination="-1" eventType="touchUpInside" id="HQW-6i-xFH"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

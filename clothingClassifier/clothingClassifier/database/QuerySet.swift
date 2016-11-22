@@ -111,7 +111,7 @@ class QuerySet{
         updateStatement = updateStatement.substring(to:
             updateStatement.index(before: updateStatement.endIndex))
         
-        return QuerySet(withQuery: updateStatement)
+        return QuerySet(withQuery: "\(updateStatement) ")
     }
     
     func limit(quantity:Int) throws -> QuerySet {

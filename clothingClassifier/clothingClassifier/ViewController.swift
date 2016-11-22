@@ -44,7 +44,9 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         super.viewDidLoad()
         currentImage = Image(imageId: 1, imageUrl: "https://s-media-cache-ak0.pinimg.com/564x/5c/a5/28/5ca5280505933a20ba48869ca9722ad3.jpg")
         photoView.image = currentImage.getImage()
-        addLabels()
+        let image = try! Images()?.insert(values: ["img_url":"https://t4.ftcdn.net/jpg/01/27/38/37/500_F_127383776_wHAgYUPdUdheYC1JpN32jM3Bhk52m20Z.jpg"])
+        image!.execUpdate(){success in}
+        //addLabels()
         
     }
     
@@ -161,7 +163,45 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     @IBAction func loadNextImage(sender:UIButton){
-        
+        let setCheckedImage = try! Images()?.update(values: ["img_checked":1])
+            .whereCond(conditions: ["img_id": currentImage.getImageId()])
+        setCheckedImage!.execUpdate(){success in
+            guard success else{
+                return
+                //Agregar alert
+            }
+            let getNextImage = try! Images()?.all().whereCond(conditions: ["img_checked":0]).limit(quantity: 1)
+            getNextImage!.exec(){ results in
+                if results.count == 0 {
+                    DispatchQueue.main.async {
+                        let noImageAlert = UIAlertController(title: NSLocalizedString("alert_no_image_title",
+                                                                                      comment: "alert title"),
+                                                             message: NSLocalizedString("alert_no_image_message",
+                                                                                        comment: "alert message"),
+                                                             preferredStyle: .alert)
+                        let noImageAlertAction = UIAlertAction(title: NSLocalizedString("alert_button",
+                                                                                        comment: "alert button"),
+                                                               style: .default){action in}
+                        noImageAlert.addAction(noImageAlertAction)
+                        self.present(noImageAlert, animated: true)
+                        
+                    }
+                }
+                else{
+                    guard results.count == 1 else{
+                        fatalError("Invalid query result")
+                    }
+                    let newImage = results[0]["img_url"] as! String
+                    let imageId = results[0]["img_id"] as! Int
+                    self.currentImage = Image(imageId: imageId, imageUrl: newImage)
+                    DispatchQueue.main.async {
+                        //Agregar loading screen
+                        self.photoView.image = self.currentImage.getImage()
+                        self.addLabels()
+                    }
+                }
+            }
+        }
     }
 
 }
