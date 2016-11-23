@@ -46,7 +46,7 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         photoView.image = currentImage.getImage()
         let image = try! Images()?.insert(values: ["img_url":"https://t4.ftcdn.net/jpg/01/27/38/37/500_F_127383776_wHAgYUPdUdheYC1JpN32jM3Bhk52m20Z.jpg"])
         image!.execUpdate(){success in}
-        //addLabels()
+        addLabels()
         
     }
     

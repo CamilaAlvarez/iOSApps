@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let dbHandler = DBHandler.getInstance(forDatabaseWithName: dbName, andExtension: dbExtension)
-        //dbHandler.removeDB()
+        dbHandler.removeDB()
         guard dbHandler.loadDB() else {
             return false
         }

@@ -18,6 +18,8 @@ class DBHandler{
     private static let sharedInstance : DBHandler = DBHandler()
     private var loadedDB:Bool = false
     private var database:FMDatabase! = nil
+    //serial queue by default
+    private let queryQueue:DispatchQueue = DispatchQueue(label: "database-queue")
     
     
     class func getInstance(forDatabaseWithName name:String, andExtension dbExt:String)-> DBHandler{
@@ -97,9 +99,8 @@ class DBHandler{
     }
     
     
-    //Cambiar esto porque genera problemas, por el open database y ble
     func execute(Query query:String, completion:@escaping ([[String:Any]]!)->Void ){
-        DispatchQueue.global().async {
+        queryQueue.async {
             if self.openDatabase() {
                 do{
                     var result = [[String:Any]]()
@@ -132,7 +133,7 @@ class DBHandler{
     }
     
     func executeUpdate(Query query:String, completion: @escaping (Bool)->Void){
-        DispatchQueue.global().async {
+        queryQueue.async {
             if self.openDatabase() {
                 let success = self.database.executeUpdate(query, withArgumentsIn: nil)
                 if self.closeDatabase() {
