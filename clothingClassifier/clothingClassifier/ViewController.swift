@@ -9,6 +9,7 @@
 import UIKit
 import FMDB
 
+
 class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     private struct category{
         let categoryCode:String
@@ -17,6 +18,9 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBOutlet var photoView:AdaptableRectangle!
     @IBOutlet var categoryPicker:UIPickerView!
+    @IBOutlet var addLabelButton:UIButton!
+    @IBOutlet var nextImageButton:UIButton!
+    @IBOutlet var showLabelsButton:UIButton!
     private let categories:[category] = CropViewController.loadCategoriesIntoArray()
     private let categoriesDictionary:[String:String] = PlistFileManager.loadPlistFile(named: "Categories")! as![String:String]
     private var currentImage:Image!
@@ -44,6 +48,8 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         super.viewDidLoad()
         currentImage = Image(imageId: 1, imageUrl: "https://s-media-cache-ak0.pinimg.com/564x/5c/a5/28/5ca5280505933a20ba48869ca9722ad3.jpg")
         photoView.image = currentImage.getImage()
+        
+        try! Images()?.insert(values: ["img_url":"https://s-media-cache-ak0.pinimg.com/564x/5c/a5/28/5ca5280505933a20ba48869ca9722ad3.jpg"]).execUpdate(){success in}
         let image = try! Images()?.insert(values: ["img_url":"https://t4.ftcdn.net/jpg/01/27/38/37/500_F_127383776_wHAgYUPdUdheYC1JpN32jM3Bhk52m20Z.jpg"])
         image!.execUpdate(){success in}
         addLabels()
@@ -163,6 +169,9 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     @IBAction func loadNextImage(sender:UIButton){
+        let loader = createLoader()
+        let blackView = createBlackView()
+        self.photoView.addSubview(loader)
         let setCheckedImage = try! Images()?.update(values: ["img_checked":1])
             .whereCond(conditions: ["img_id": currentImage.getImageId()])
         setCheckedImage!.execUpdate(){success in
@@ -191,18 +200,54 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     guard results.count == 1 else{
                         fatalError("Invalid query result")
                     }
+                    DispatchQueue.main.async {
+                        self.prepareUI {
+                            self.photoView.addSubview(blackView)
+                            loader.startAnimating()
+                            self.photoView.bringSubview(toFront: loader)
+                        }
+                    }
                     let newImage = results[0]["img_url"] as! String
                     let imageId = results[0]["img_id"] as! Int
                     self.currentImage = Image(imageId: imageId, imageUrl: newImage)
+                    let image = self.currentImage.getImage()
                     DispatchQueue.main.async {
-                        //Agregar loading screen
-                        self.photoView.image = self.currentImage.getImage()
+                        self.photoView.image = image
                         self.addLabels()
+                        self.prepareUI {
+                            loader.stopAnimating()
+                            blackView.removeFromSuperview()
+                        }
+
                     }
                 }
             }
         }
     }
-
+    private func prepareUI(completion:()->()){
+        self.addLabelButton.isEnabled = !self.addLabelButton.isEnabled
+        self.nextImageButton.isEnabled = !self.nextImageButton.isEnabled
+        self.showLabelsButton.isEnabled = !self.showLabelsButton.isEnabled
+        self.categoryPicker.isUserInteractionEnabled = !self.categoryPicker.isUserInteractionEnabled
+        completion()
+        
+    }
+    
+    private func createBlackView()->UIView{
+        let blackView = UIView(frame: self.photoView.frame)
+        blackView.backgroundColor = UIColor.black
+        blackView.alpha = 0.6
+        return blackView
+    }
+    
+    private func createLoader()->UIActivityIndicatorView{
+        var centerLoader = self.photoView.center
+        centerLoader.x -= 50
+        centerLoader.y -= 50 //Colocar numeros como constantes
+        let loader = UIActivityIndicatorView(frame: CGRect(origin: centerLoader,
+                                                           size: CGSize(width: 100, height: 100)))
+        loader.activityIndicatorViewStyle = .whiteLarge
+        return loader
+    }
 }
 

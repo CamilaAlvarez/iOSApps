@@ -11,8 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CropViewController" customModule="clothingClassifier" customModuleProvider="target">
             <connections>
+                <outlet property="addLabelButton" destination="MuT-o5-D5f" id="qTx-uP-Rm4"/>
                 <outlet property="categoryPicker" destination="reh-gE-Ib7" id="Roh-yV-t9B"/>
+                <outlet property="nextImageButton" destination="eBh-2s-Ik6" id="Sea-Na-XLy"/>
                 <outlet property="photoView" destination="u7Q-R3-Fqo" id="b23-6p-r9Z"/>
+                <outlet property="showLabelsButton" destination="NiY-eK-4YE" id="F49-f9-HZl"/>
                 <outlet property="view" destination="FeT-uN-xx4" id="F4B-UB-s8P"/>
             </connections>
         </placeholder>
