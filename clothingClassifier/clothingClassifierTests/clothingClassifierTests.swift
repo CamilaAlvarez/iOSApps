@@ -98,6 +98,27 @@ class clothingClassifierTests: XCTestCase {
         XCTAssertThrowsError(try getQuery!.join(table: ImageCategories()!, onColumn: "ict_id_category", andColumn: "cat_id"))
     }
     
+    func testInvalidLimit(){
+        let table = Categories()!
+        let deleteQuery = try? table.delete().whereCond(conditions: ["cat_code": 2])
+        XCTAssertNotNil(deleteQuery)
+        XCTAssertNotNil(deleteQuery!.getQuery())
+        XCTAssertEqual(deleteQuery!.getQuery()!, "DELETE FROM Categories WHERE cat_code=2")
+        XCTAssertThrowsError(try deleteQuery!.limit(quantity: 1))
+    }
+    
+    func testLimit(){
+        let table = Categories()!
+        let getQuery = try? table.get(columns: ["cat_id", "cat_code"]).whereCond(conditions: ["cat_code": 2])
+        XCTAssertNotNil(getQuery)
+        XCTAssertNotNil(getQuery!.getQuery())
+        XCTAssertEqual(getQuery!.getQuery()!, "SELECT cat_id, cat_code FROM Categories WHERE cat_code=2")
+        let limitQuery = try? getQuery!.limit(quantity: 1)
+        XCTAssertNotNil(limitQuery)
+        XCTAssertNotNil(limitQuery!.getQuery())
+        XCTAssertEqual(limitQuery!.getQuery()!, "SELECT cat_id, cat_code FROM Categories WHERE cat_code=2 LIMIT 1")
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

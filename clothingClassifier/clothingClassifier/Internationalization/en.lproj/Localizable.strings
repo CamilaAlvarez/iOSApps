@@ -5,3 +5,7 @@
   Created by Camila Alvarez on 16-08-16.
   Copyright © 2016 Camila Alvarez. All rights reserved.
 */
+alert_no_image_title = "Error";
+alert_no_image_message = "No unlabeled images left.";
+alert_button = "OK";
+alert_update_error = "Couldn't change image. Try again.";

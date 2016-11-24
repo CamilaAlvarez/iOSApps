@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4F1288461D9F38290095291C /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4F1288451D9F38290095291C /* db.sqlite */; };
+		4F13115E1DE7AAC800F662A0 /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13115D1DE7AAC800F662A0 /* AlertControllerFactory.swift */; };
 		4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */; };
 		4F18D5AC1D6FD27600B46F13 /* TopRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */; };
 		4F18D5AE1D6FDB1800B46F13 /* BottomRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */; };
@@ -75,6 +76,7 @@
 		1D905603675E4DD7DB8E0962 /* Pods_clothingClassifierUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_clothingClassifierUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE9CE80FED123FCB125058E /* Pods_clothingClassifierTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_clothingClassifierTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1288451D9F38290095291C /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
+		4F13115D1DE7AAC800F662A0 /* AlertControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
 		4F18D5A91D6FC6E100B46F13 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		4F18D5AB1D6FD27600B46F13 /* TopRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRectangle.swift; sourceTree = "<group>"; };
 		4F18D5AD1D6FDB1800B46F13 /* BottomRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomRectangle.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				4FB5C8F11D654C1800E9A783 /* AdaptableRectangle.swift */,
 				4F3B92BF1D76617500255932 /* RectangleAdapter.swift */,
 				4F7E7B711DCD77E200C958FF /* Image.swift */,
+				4F13115D1DE7AAC800F662A0 /* AlertControllerFactory.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				4F342C291DB9796A005EBE7D /* Tables.swift in Sources */,
 				4F3B92BB1D76401E00255932 /* LeftRectangle.swift in Sources */,
 				4F362AEA1DA89D390094B6FF /* CenterControllerDelegate.swift in Sources */,
+				4F13115E1DE7AAC800F662A0 /* AlertControllerFactory.swift in Sources */,
 				4F4473F11DADA96F003C39F8 /* LabeledImagesController.swift in Sources */,
 				4F618D551DA1FC5A003A220C /* PlistFileManager.swift in Sources */,
 				4F18D5AA1D6FC6E100B46F13 /* Rectangle.swift in Sources */,

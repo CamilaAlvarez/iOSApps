@@ -12,6 +12,7 @@ enum queryErrors:Error{
     case badQuery
     case invalidJoin
     case invalidCondition
+    case invalidLimit
 }
 
 class QuerySet{
@@ -73,7 +74,7 @@ class QuerySet{
     }
     
     func whereCond(conditions:[String:Any]) throws -> QuerySet{
-        guard query != nil && !query.contains(" WHERE ") && (query.contains("DELETE") ||
+        guard query != nil && !query.contains(" WHERE ") && !query.contains("LIMIT") && (query.contains("DELETE") ||
             query.contains("SELECT") || query.contains("UPDATE")) else{
             throw queryErrors.invalidCondition
         }
@@ -110,7 +111,16 @@ class QuerySet{
         updateStatement = updateStatement.substring(to:
             updateStatement.index(before: updateStatement.endIndex))
         
-        return QuerySet(withQuery: updateStatement)
+        return QuerySet(withQuery: "\(updateStatement) ")
+    }
+    
+    func limit(quantity:Int) throws -> QuerySet {
+        guard query != nil && !query.contains("DELETE") && !query.contains("INSERT")
+            &&  !query.contains("UPDATE") else{
+                throw queryErrors.invalidLimit
+        }
+        let limitStatement = "LIMIT \(quantity)"
+        return QuerySet(withQuery: query + limitStatement)
     }
     
     func insert(values:[String:Any]) throws ->QuerySet{

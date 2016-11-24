@@ -9,6 +9,7 @@
 import UIKit
 import FMDB
 
+
 class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     private struct category{
         let categoryCode:String
@@ -17,6 +18,9 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBOutlet var photoView:AdaptableRectangle!
     @IBOutlet var categoryPicker:UIPickerView!
+    @IBOutlet var addLabelButton:UIButton!
+    @IBOutlet var nextImageButton:UIButton!
+    @IBOutlet var showLabelsButton:UIButton!
     private let categories:[category] = CropViewController.loadCategoriesIntoArray()
     private let categoriesDictionary:[String:String] = PlistFileManager.loadPlistFile(named: "Categories")! as![String:String]
     private var currentImage:Image!
@@ -48,15 +52,19 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
     }
     
+    private func hideLabels(){
+        for labelView in labels{
+            labelView.removeFromSuperview()
+        }
+        labels = [LabelContainer]()
+    }
+    
     @IBAction func loadLabels(sender: UIButton){
         if showLabels{
             addLabels()
         }
         else{
-            for labelView in labels{
-                labelView.removeFromSuperview()
-            }
-            labels = [LabelContainer]()
+            hideLabels()
         }
         showLabels = !showLabels
     }
@@ -160,6 +168,84 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
+    @IBAction func loadNextImage(sender:UIButton){
+        let loader = createLoader()
+        let blackView = createBlackView()
+        self.photoView.addSubview(loader)
+        let setCheckedImage = try! Images()?.update(values: ["img_checked":1])
+            .whereCond(conditions: ["img_id": currentImage.getImageId()])
+        setCheckedImage!.execUpdate(){success in
+            guard success else{
+                let alert = AlertControllerFactory
+                    .createStandardErrorAlert(message: NSLocalizedString("alert_update_error",
+                                                                         comment: "error update message"))
+                self.present(alert, animated: true)
+                return
+                
+            }
+            let getNextImage = try! Images()?.all().whereCond(conditions: ["img_checked":0]).limit(quantity: 1)
+            getNextImage!.exec(){ results in
+                if results.count == 0 {
+                    DispatchQueue.main.async {
+                        let alert = AlertControllerFactory
+                            .createStandardErrorAlert(message: NSLocalizedString("alert_no_image_message",
+                                                            comment: "alert message"))
+                        self.present(alert, animated: true)
+                    }
+                }
+                else{
+                    guard results.count == 1 else{
+                        fatalError("Invalid query result")
+                    }
+                    DispatchQueue.main.async {
+                        self.prepareUI {
+                            self.photoView.addSubview(blackView)
+                            loader.startAnimating()
+                            self.photoView.bringSubview(toFront: loader)
+                        }
+                    }
+                    let newImage = results[0]["img_url"] as! String
+                    let imageId = results[0]["img_id"] as! Int
+                    self.currentImage = Image(imageId: imageId, imageUrl: newImage)
+                    let image = self.currentImage.getImage()
+                    DispatchQueue.main.async {
+                        self.hideLabels()
+                        self.photoView.image = image
+                        self.addLabels()
+                        self.prepareUI {
+                            loader.stopAnimating()
+                            blackView.removeFromSuperview()
+                        }
 
+                    }
+                }
+            }
+        }
+    }
+    private func prepareUI(completion:()->()){
+        self.addLabelButton.isEnabled = !self.addLabelButton.isEnabled
+        self.nextImageButton.isEnabled = !self.nextImageButton.isEnabled
+        self.showLabelsButton.isEnabled = !self.showLabelsButton.isEnabled
+        self.categoryPicker.isUserInteractionEnabled = !self.categoryPicker.isUserInteractionEnabled
+        completion()
+        
+    }
+    
+    private func createBlackView()->UIView{
+        let blackView = UIView(frame: self.photoView.frame)
+        blackView.backgroundColor = UIColor.black
+        blackView.alpha = 0.6
+        return blackView
+    }
+    
+    private func createLoader()->UIActivityIndicatorView{
+        var centerLoader = self.photoView.center
+        centerLoader.x -= 50
+        centerLoader.y -= 50 //Colocar numeros como constantes
+        let loader = UIActivityIndicatorView(frame: CGRect(origin: centerLoader,
+                                                           size: CGSize(width: 100, height: 100)))
+        loader.activityIndicatorViewStyle = .whiteLarge
+        return loader
+    }
 }
 
