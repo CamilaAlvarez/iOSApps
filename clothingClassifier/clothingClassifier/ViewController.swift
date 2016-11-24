@@ -48,12 +48,15 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         super.viewDidLoad()
         currentImage = Image(imageId: 1, imageUrl: "https://s-media-cache-ak0.pinimg.com/564x/5c/a5/28/5ca5280505933a20ba48869ca9722ad3.jpg")
         photoView.image = currentImage.getImage()
-        
-        try! Images()?.insert(values: ["img_url":"https://s-media-cache-ak0.pinimg.com/564x/5c/a5/28/5ca5280505933a20ba48869ca9722ad3.jpg"]).execUpdate(){success in}
-        let image = try! Images()?.insert(values: ["img_url":"https://t4.ftcdn.net/jpg/01/27/38/37/500_F_127383776_wHAgYUPdUdheYC1JpN32jM3Bhk52m20Z.jpg"])
-        image!.execUpdate(){success in}
         addLabels()
         
+    }
+    
+    private func hideLabels(){
+        for labelView in labels{
+            labelView.removeFromSuperview()
+        }
+        labels = [LabelContainer]()
     }
     
     @IBAction func loadLabels(sender: UIButton){
@@ -61,10 +64,7 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             addLabels()
         }
         else{
-            for labelView in labels{
-                labelView.removeFromSuperview()
-            }
-            labels = [LabelContainer]()
+            hideLabels()
         }
         showLabels = !showLabels
     }
@@ -176,24 +176,21 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             .whereCond(conditions: ["img_id": currentImage.getImageId()])
         setCheckedImage!.execUpdate(){success in
             guard success else{
+                let alert = AlertControllerFactory
+                    .createStandardErrorAlert(message: NSLocalizedString("alert_update_error",
+                                                                         comment: "error update message"))
+                self.present(alert, animated: true)
                 return
-                //Agregar alert
+                
             }
             let getNextImage = try! Images()?.all().whereCond(conditions: ["img_checked":0]).limit(quantity: 1)
             getNextImage!.exec(){ results in
                 if results.count == 0 {
                     DispatchQueue.main.async {
-                        let noImageAlert = UIAlertController(title: NSLocalizedString("alert_no_image_title",
-                                                                                      comment: "alert title"),
-                                                             message: NSLocalizedString("alert_no_image_message",
-                                                                                        comment: "alert message"),
-                                                             preferredStyle: .alert)
-                        let noImageAlertAction = UIAlertAction(title: NSLocalizedString("alert_button",
-                                                                                        comment: "alert button"),
-                                                               style: .default){action in}
-                        noImageAlert.addAction(noImageAlertAction)
-                        self.present(noImageAlert, animated: true)
-                        
+                        let alert = AlertControllerFactory
+                            .createStandardErrorAlert(message: NSLocalizedString("alert_no_image_message",
+                                                            comment: "alert message"))
+                        self.present(alert, animated: true)
                     }
                 }
                 else{
@@ -212,6 +209,7 @@ class CropViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     self.currentImage = Image(imageId: imageId, imageUrl: newImage)
                     let image = self.currentImage.getImage()
                     DispatchQueue.main.async {
+                        self.hideLabels()
                         self.photoView.image = image
                         self.addLabels()
                         self.prepareUI {
